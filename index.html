@@ -3,508 +3,448 @@
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bendy Viajes</title>
+  <title>Bendy Viajes - Descubre el Mundo</title>
   <script src="https://cdn.tailwindcss.com/3.4.17"></script>
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
   <script src="/_sdk/element_sdk.js"></script>
-  <script src="/_sdk/data_sdk.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <script>
-tailwind.config = {
-  theme: {
-    extend: {
-      fontFamily: { outfit: ['Outfit', 'sans-serif'] },
-      colors: {
-        royal: '#0B3CFF',
-        purple: '#6A0DAD',
-        dark: '#0a0a1a'
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            royal: '#0B3CFF',
+            purple: '#6A0DAD',
+            dark: '#0a0a1a'
+          },
+          fontFamily: {
+            outfit: ['Outfit', 'sans-serif'],
+            space: ['Space Grotesk', 'sans-serif']
+          }
+        }
       }
     }
-  }
-}
-</script>
+  </script>
   <style>
-html, body { height: 100%; margin: 0; font-family: 'Outfit', sans-serif; }
-.app-root { height: 100%; overflow-y: auto; overflow-x: hidden; }
-.gradient-text { background: linear-gradient(135deg, #0B3CFF, #6A0DAD); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-.gradient-bg { background: linear-gradient(135deg, #0B3CFF, #6A0DAD); }
-.gradient-bg-dark { background: linear-gradient(135deg, #0a0a1a 0%, #1a1040 50%, #0a0a1a 100%); }
-.card-hover { transition: all 0.4s cubic-bezier(0.4,0,0.2,1); }
-.card-hover:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 20px 60px rgba(11,60,255,0.2); }
-.card-hover:hover .card-img { transform: scale(1.1); }
-.card-img { transition: transform 0.6s cubic-bezier(0.4,0,0.2,1); }
-.btn-glow { position: relative; overflow: hidden; }
-.btn-glow::after { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%); opacity: 0; transition: opacity 0.3s; }
-.btn-glow:hover::after { opacity: 1; }
-.fade-in { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.4,0,0.2,1); }
-.fade-in.visible { opacity: 1; transform: translateY(0); }
-.page-view { display: none; animation: fadeUp 0.5s ease forwards; }
-.page-view.active { display: block; }
-@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-.whatsapp-menu { transform: scale(0) translateY(20px); opacity: 0; transition: all 0.3s cubic-bezier(0.4,0,0.2,1); pointer-events: none; }
-.whatsapp-menu.open { transform: scale(1) translateY(0); opacity: 1; pointer-events: all; }
-.nav-link { position: relative; }
-.nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, #0B3CFF, #6A0DAD); transition: width 0.3s; }
-.nav-link:hover::after { width: 100%; }
-.promo-card { background: linear-gradient(145deg, rgba(11,60,255,0.05), rgba(106,13,173,0.05)); border: 1px solid rgba(11,60,255,0.1); }
-.promo-card:hover { border-color: rgba(11,60,255,0.4); }
-.hero-bg { background: linear-gradient(135deg, #0a0a1a 0%, #0d1547 30%, #1a0a3a 70%, #0a0a1a 100%); position: relative; overflow: hidden; }
-.hero-bg::before { content: ''; position: absolute; top: -50%; right: -30%; width: 80%; height: 200%; background: radial-gradient(ellipse, rgba(11,60,255,0.15) 0%, transparent 60%); }
-.hero-bg::after { content: ''; position: absolute; bottom: -30%; left: -20%; width: 60%; height: 150%; background: radial-gradient(ellipse, rgba(106,13,173,0.1) 0%, transparent 60%); }
-.toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(100px); opacity: 0; transition: all 0.4s; z-index: 9999; }
-.toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
-</style>
+    html, body { height: 100%; margin: 0; font-family: 'Outfit', sans-serif; }
+    .gradient-text { background: linear-gradient(135deg, #0B3CFF, #6A0DAD); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .gradient-bg { background: linear-gradient(135deg, #0B3CFF, #6A0DAD); }
+    .gradient-bg-dark { background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3e 50%, #0a0a1a 100%); }
+    .card-hover { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+    .card-hover:hover { transform: translateY(-8px) scale(1.02); box-shadow: 0 25px 50px rgba(11, 60, 255, 0.2); }
+    .card-hover:hover img { transform: scale(1.1); }
+    .card-img-wrap { overflow: hidden; }
+    .card-img-wrap img { transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+    .btn-glow { position: relative; overflow: hidden; }
+    .btn-glow::after { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%); opacity: 0; transition: opacity 0.4s; }
+    .btn-glow:hover::after { opacity: 1; }
+    .fade-up { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .hero-overlay { background: linear-gradient(180deg, rgba(10,10,26,0.7) 0%, rgba(10,10,26,0.4) 40%, rgba(10,10,26,0.8) 100%); }
+    .nav-blur { backdrop-filter: blur(20px); background: rgba(10,10,26,0.8); }
+    .whatsapp-menu { transform: scale(0) translateY(20px); opacity: 0; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); pointer-events: none; }
+    .whatsapp-menu.active { transform: scale(1) translateY(0); opacity: 1; pointer-events: all; }
+    .page-section { display: none; }
+    .page-section.active { display: block; }
+    .promo-card { background: linear-gradient(145deg, rgba(11,60,255,0.1), rgba(106,13,173,0.1)); border: 1px solid rgba(11,60,255,0.2); }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    .float-anim { animation: float 3s ease-in-out infinite; }
+    @keyframes pulse-glow { 0%,100% { box-shadow: 0 0 20px rgba(37,211,102,0.4); } 50% { box-shadow: 0 0 40px rgba(37,211,102,0.8); } }
+    .wa-pulse { animation: pulse-glow 2s ease-in-out infinite; }
+    .subpage-hero { background: linear-gradient(135deg, #0B3CFF 0%, #6A0DAD 100%); min-height: 200px; }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0a0a1a; }
+    ::-webkit-scrollbar-thumb { background: linear-gradient(#0B3CFF, #6A0DAD); border-radius: 4px; }
+  </style>
   <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
- <body class="h-full bg-white text-gray-900">
-  <div class="app-root" id="app"><!-- NAVBAR -->
-   <nav class="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm" id="navbar">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16"><a href="#" onclick="showPage('home')" class="text-2xl font-bold gradient-text">BENDY VIAJES</a>
-     <div class="hidden md:flex items-center gap-6"><a href="#" onclick="showPage('home')" class="nav-link text-sm font-medium text-gray-700 hover:text-royal" data-i18n="nav_home">Inicio</a> <a href="#" onclick="scrollToSection('services')" class="nav-link text-sm font-medium text-gray-700 hover:text-royal" data-i18n="nav_services">Servicios</a> <a href="#" onclick="scrollToSection('promos')" class="nav-link text-sm font-medium text-gray-700 hover:text-royal" data-i18n="nav_promos">Promociones</a> <a href="#" onclick="scrollToSection('about')" class="nav-link text-sm font-medium text-gray-700 hover:text-royal" data-i18n="nav_about">Nosotros</a> <a href="#" onclick="scrollToSection('contact')" class="nav-link text-sm font-medium text-gray-700 hover:text-royal" data-i18n="nav_contact">Contacto</a> <button onclick="toggleLang()" class="ml-2 px-3 py-1 rounded-full text-xs font-semibold border border-royal text-royal hover:bg-royal hover:text-white transition" id="langBtn">EN</button>
-     </div><button onclick="toggleMobileMenu()" class="md:hidden text-gray-700"><i data-lucide="menu" class="w-6 h-6"></i></button>
-    </div>
-    <div class="md:hidden hidden bg-white border-t border-gray-100 px-4 py-4 space-y-3" id="mobileMenu"><a href="#" onclick="showPage('home');toggleMobileMenu()" class="block text-sm font-medium text-gray-700" data-i18n="nav_home">Inicio</a> <a href="#" onclick="scrollToSection('services');toggleMobileMenu()" class="block text-sm font-medium text-gray-700" data-i18n="nav_services">Servicios</a> <a href="#" onclick="scrollToSection('promos');toggleMobileMenu()" class="block text-sm font-medium text-gray-700" data-i18n="nav_promos">Promociones</a> <a href="#" onclick="scrollToSection('about');toggleMobileMenu()" class="block text-sm font-medium text-gray-700" data-i18n="nav_about">Nosotros</a> <a href="#" onclick="scrollToSection('contact');toggleMobileMenu()" class="block text-sm font-medium text-gray-700" data-i18n="nav_contact">Contacto</a> <button onclick="toggleLang()" class="px-3 py-1 rounded-full text-xs font-semibold border border-royal text-royal">EN</button>
+ <body class="h-full bg-dark text-white overflow-auto">
+  <div id="app" class="w-full min-h-full"><!-- NAVIGATION -->
+   <nav id="navbar" class="fixed top-0 left-0 w-full z-50 nav-blur border-b border-white/5 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16"><a href="#" onclick="showPage('home')" class="flex items-center gap-2">
+      <div class="w-9 h-9 rounded-lg gradient-bg flex items-center justify-center"><span class="text-white font-bold text-sm">BV</span>
+      </div><span class="font-outfit font-bold text-xl">Bendy<span class="gradient-text">Viajes</span></span> </a>
+     <div class="hidden md:flex items-center gap-6 text-sm font-medium"><a href="#" onclick="showPage('home');scrollToSection('services')" class="hover:text-royal transition-colors">Servicios</a> <a href="#" onclick="showPage('home');scrollToSection('promos')" class="hover:text-royal transition-colors">Promociones</a> <a href="#" onclick="showPage('home');scrollToSection('about')" class="hover:text-royal transition-colors">Nosotros</a> <a href="#" onclick="showPage('home');scrollToSection('contact')" class="hover:text-royal transition-colors">Contacto</a> <button onclick="toggleLang()" id="langBtn" class="px-3 py-1 rounded-full border border-royal/50 text-xs hover:bg-royal/20 transition-colors">EN</button>
+     </div><button onclick="toggleMobileMenu()" class="md:hidden"><i data-lucide="menu" class="w-6 h-6"></i></button>
+    </div><!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-dark/95 border-t border-white/5 px-4 py-4 space-y-3"><a href="#" onclick="showPage('home');scrollToSection('services');toggleMobileMenu()" class="block py-2">Servicios</a> <a href="#" onclick="showPage('home');scrollToSection('promos');toggleMobileMenu()" class="block py-2">Promociones</a> <a href="#" onclick="showPage('home');scrollToSection('about');toggleMobileMenu()" class="block py-2">Nosotros</a> <a href="#" onclick="showPage('home');scrollToSection('contact');toggleMobileMenu()" class="block py-2">Contacto</a>
     </div>
    </nav><!-- HOME PAGE -->
-   <div class="page-view active" id="page-home"><!-- HERO -->
-    <section class="hero-bg min-h-[600px] flex items-center justify-center text-center px-4 pt-20 pb-16 relative overflow-hidden">
-     <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-40" id="heroVideo">
-      <source src="https://raw.githubusercontent.com/TuUsuario/TuRepositorio/main/inicio.mp4" type="video/mp4">
+   <div id="page-home" class="page-section active"><!-- HERO -->
+    <section class="relative w-full" style="height: 100%;">
+     <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover"><source src="assets/video/inicio.mp4" type="video/mp4">
      </video>
-     <div class="absolute inset-0 bg-gradient-to-b from-dark/60 to-dark/40 z-[5]"></div>
-     <div class="relative z-10 max-w-4xl mx-auto">
-      <h1 class="text-4xl sm:text-5xl md:text-7xl font-900 text-white mb-6 leading-tight" id="heroTitle">Descubre el mundo con <span class="gradient-text">Bendy Viajes</span></h1>
-      <p class="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto" id="heroSubtitle">Experiencias únicas, destinos inolvidables</p><button onclick="scrollToSection('services')" class="btn-glow gradient-bg text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg shadow-royal/30 hover:shadow-xl hover:shadow-royal/40 transition-all" data-i18n="hero_btn">Explorar destinos</button>
-     </div><!-- Floating decorative elements -->
-     <div class="absolute top-20 left-10 w-2 h-2 bg-royal rounded-full animate-pulse opacity-50 z-20"></div>
-     <div class="absolute top-40 right-20 w-3 h-3 bg-purple rounded-full animate-pulse opacity-40 z-20" style="animation-delay:1s"></div>
-     <div class="absolute bottom-20 left-1/4 w-2 h-2 bg-blue-400 rounded-full animate-pulse opacity-30 z-20" style="animation-delay:2s"></div>
+     <div class="hero-overlay absolute inset-0"></div><!-- Fallback gradient if video fails -->
+     <div class="absolute inset-0 gradient-bg-dark -z-10"></div>
+     <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 py-32">
+      <div class="float-anim mb-6">
+       <div class="w-16 h-16 rounded-2xl gradient-bg flex items-center justify-center mx-auto"><i data-lucide="plane" class="w-8 h-8 text-white"></i>
+       </div>
+      </div>
+      <h1 id="heroTitle" class="font-outfit font-900 text-4xl sm:text-5xl md:text-7xl leading-tight mb-4 max-w-4xl">Descubre el mundo con <span class="gradient-text">Bendy Viajes</span></h1>
+      <p id="heroSubtitle" class="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl font-light">Experiencias únicas, destinos inolvidables</p><button onclick="scrollToSection('services')" class="btn-glow gradient-bg px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg hover:shadow-royal/30 transition-all duration-300"> <span data-i18n="explore_btn">Explorar destinos</span> → </button>
+     </div>
     </section><!-- SERVICES -->
-    <section class="py-20 px-4 bg-gray-50" id="services">
+    <section id="services" class="py-20 px-4 gradient-bg-dark">
      <div class="max-w-7xl mx-auto">
-      <h2 class="text-3xl sm:text-4xl font-bold text-center mb-4 gradient-text" data-i18n="services_title">Nuestros Servicios</h2>
-      <p class="text-center text-gray-500 mb-12 max-w-xl mx-auto" data-i18n="services_sub">Todo lo que necesitas para tu próxima aventura</p>
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-       <div onclick="showPage('boleteria')" class="card-hover cursor-pointer rounded-2xl overflow-hidden bg-white shadow-md fade-in">
-        <div class="h-32 sm:h-40 overflow-hidden bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
-         <div class="card-img">
-          <i data-lucide="plane" class="w-12 h-12 text-white"></i>
-         </div>
-        </div>
-        <div class="p-4 text-center">
-         <h3 class="font-semibold text-sm sm:text-base" data-i18n="srv_tickets">Boletería</h3>
-        </div>
-       </div>
-       <div onclick="showPage('hoteles')" class="card-hover cursor-pointer rounded-2xl overflow-hidden bg-white shadow-md fade-in">
-        <div class="h-32 sm:h-40 overflow-hidden bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
-         <div class="card-img">
-          <i data-lucide="building" class="w-12 h-12 text-white"></i>
-         </div>
-        </div>
-        <div class="p-4 text-center">
-         <h3 class="font-semibold text-sm sm:text-base" data-i18n="srv_hotels">Hoteles</h3>
-        </div>
-       </div>
-       <div onclick="showPage('cruceros')" class="card-hover cursor-pointer rounded-2xl overflow-hidden bg-white shadow-md fade-in">
-        <div class="h-32 sm:h-40 overflow-hidden bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
-         <div class="card-img">
-          <i data-lucide="ship" class="w-12 h-12 text-white"></i>
-         </div>
-        </div>
-        <div class="p-4 text-center">
-         <h3 class="font-semibold text-sm sm:text-base" data-i18n="srv_cruises">Cruceros</h3>
-        </div>
-       </div>
-       <div onclick="showPage('paquetes')" class="card-hover cursor-pointer rounded-2xl overflow-hidden bg-white shadow-md fade-in">
-        <div class="h-32 sm:h-40 overflow-hidden bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center">
-         <div class="card-img">
-          <i data-lucide="package" class="w-12 h-12 text-white"></i>
-         </div>
-        </div>
-        <div class="p-4 text-center">
-         <h3 class="font-semibold text-sm sm:text-base" data-i18n="srv_packages">Paquetes</h3>
-        </div>
-       </div>
-       <div onclick="showPage('tours')" class="card-hover cursor-pointer rounded-2xl overflow-hidden bg-white shadow-md fade-in">
-        <div class="h-32 sm:h-40 overflow-hidden bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center">
-         <div class="card-img">
-          <i data-lucide="map" class="w-12 h-12 text-white"></i>
-         </div>
-        </div>
-        <div class="p-4 text-center">
-         <h3 class="font-semibold text-sm sm:text-base" data-i18n="srv_tours">Tours</h3>
-        </div>
-       </div>
-       <div onclick="showPage('atracciones')" class="card-hover cursor-pointer rounded-2xl overflow-hidden bg-white shadow-md fade-in">
-        <div class="h-32 sm:h-40 overflow-hidden bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center">
-         <div class="card-img">
-          <i data-lucide="landmark" class="w-12 h-12 text-white"></i>
-         </div>
-        </div>
-        <div class="p-4 text-center">
-         <h3 class="font-semibold text-sm sm:text-base" data-i18n="srv_attractions">Atracciones</h3>
-        </div>
-       </div>
-       <div onclick="showPage('seguros')" class="card-hover cursor-pointer rounded-2xl overflow-hidden bg-white shadow-md fade-in">
-        <div class="h-32 sm:h-40 overflow-hidden bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center">
-         <div class="card-img">
-          <i data-lucide="shield-check" class="w-12 h-12 text-white"></i>
-         </div>
-        </div>
-        <div class="p-4 text-center">
-         <h3 class="font-semibold text-sm sm:text-base" data-i18n="srv_insurance">Seguros de Viaje</h3>
-        </div>
-       </div>
-       <div onclick="showPage('promociones')" class="card-hover cursor-pointer rounded-2xl overflow-hidden bg-white shadow-md fade-in">
-        <div class="h-32 sm:h-40 overflow-hidden bg-gradient-to-br from-yellow-500 to-amber-600 flex items-center justify-center">
-         <div class="card-img">
-          <i data-lucide="percent" class="w-12 h-12 text-white"></i>
-         </div>
-        </div>
-        <div class="p-4 text-center">
-         <h3 class="font-semibold text-sm sm:text-base" data-i18n="srv_promos">Promociones</h3>
-        </div>
-       </div>
+      <div class="text-center mb-16 fade-up">
+       <h2 class="font-outfit font-800 text-3xl sm:text-5xl mb-4" data-i18n="services_title">Nuestros Servicios</h2>
+       <p class="text-gray-400 max-w-xl mx-auto" data-i18n="services_sub">Todo lo que necesitas para tu próxima aventura</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="servicesGrid">
       </div>
      </div>
     </section><!-- PROMOTIONS -->
-    <section class="py-20 px-4 bg-white" id="promos">
+    <section id="promos" class="py-20 px-4 bg-dark">
      <div class="max-w-7xl mx-auto">
-      <h2 class="text-3xl sm:text-4xl font-bold text-center mb-4 gradient-text" data-i18n="promo_title">Ofertas Especiales</h2>
-      <p class="text-center text-gray-500 mb-12" data-i18n="promo_sub">Aprovecha nuestras mejores promociones</p>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-       <div class="promo-card card-hover rounded-2xl overflow-hidden fade-in">
-        <div class="h-48 bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center relative"><i data-lucide="palm-tree" class="w-16 h-16 text-white/80"></i> <span class="absolute top-3 right-3 bg-yellow-400 text-gray-900 text-xs font-bold px-3 py-1 rounded-full">-30%</span>
-        </div>
-        <div class="p-5">
-         <h3 class="font-bold text-lg mb-1" data-i18n="promo1_title">Caribe Todo Incluido</h3>
-         <p class="text-gray-500 text-sm mb-3" data-i18n="promo1_desc">7 noches · Vuelo + Hotel + Comidas</p><button onclick="openWhatsApp('Hola, me interesa la promoción Caribe Todo Incluido')" class="gradient-bg text-white text-sm px-4 py-2 rounded-full font-medium btn-glow" data-i18n="promo_btn">Consultar</button>
-        </div>
-       </div>
-       <div class="promo-card card-hover rounded-2xl overflow-hidden fade-in">
-        <div class="h-48 bg-gradient-to-br from-emerald-600 to-teal-700 flex items-center justify-center relative"><i data-lucide="mountain" class="w-16 h-16 text-white/80"></i> <span class="absolute top-3 right-3 bg-yellow-400 text-gray-900 text-xs font-bold px-3 py-1 rounded-full">-25%</span>
-        </div>
-        <div class="p-5">
-         <h3 class="font-bold text-lg mb-1" data-i18n="promo2_title">Europa Clásica</h3>
-         <p class="text-gray-500 text-sm mb-3" data-i18n="promo2_desc">12 días · 5 países · Guía incluida</p><button onclick="openWhatsApp('Hola, me interesa la promoción Europa Clásica')" class="gradient-bg text-white text-sm px-4 py-2 rounded-full font-medium btn-glow" data-i18n="promo_btn">Consultar</button>
-        </div>
-       </div>
-       <div class="promo-card card-hover rounded-2xl overflow-hidden fade-in">
-        <div class="h-48 bg-gradient-to-br from-rose-600 to-pink-700 flex items-center justify-center relative"><i data-lucide="ship" class="w-16 h-16 text-white/80"></i> <span class="absolute top-3 right-3 bg-yellow-400 text-gray-900 text-xs font-bold px-3 py-1 rounded-full">NUEVO</span>
-        </div>
-        <div class="p-5">
-         <h3 class="font-bold text-lg mb-1" data-i18n="promo3_title">Crucero Mediterráneo</h3>
-         <p class="text-gray-500 text-sm mb-3" data-i18n="promo3_desc">8 noches · Desde Barcelona</p><button onclick="openWhatsApp('Hola, me interesa el Crucero Mediterráneo')" class="gradient-bg text-white text-sm px-4 py-2 rounded-full font-medium btn-glow" data-i18n="promo_btn">Consultar</button>
-        </div>
-       </div>
+      <div class="text-center mb-16 fade-up">
+       <h2 class="font-outfit font-800 text-3xl sm:text-5xl mb-4" data-i18n="promos_title">Promociones Especiales</h2>
+       <p class="text-gray-400 max-w-xl mx-auto" data-i18n="promos_sub">Ofertas exclusivas para viajeros</p>
       </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="promosGrid"></div>
      </div>
     </section><!-- ABOUT -->
-    <section class="py-20 px-4 gradient-bg-dark" id="about">
-     <div class="max-w-4xl mx-auto text-center fade-in">
-      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6" data-i18n="about_title">Quiénes Somos</h2>
-      <p class="text-gray-300 text-lg leading-relaxed" id="aboutText" data-i18n="about_text">En Bendy Viajes nos especializamos en crear experiencias inolvidables alrededor del mundo, ofreciendo atención personalizada, confianza y los mejores destinos para nuestros clientes.</p>
-      <div class="grid grid-cols-3 gap-6 mt-12">
-       <div>
-        <p class="text-3xl font-bold text-white">500+</p>
-        <p class="text-gray-400 text-sm" data-i18n="about_stat1">Clientes felices</p>
-       </div>
-       <div>
-        <p class="text-3xl font-bold text-white">50+</p>
-        <p class="text-gray-400 text-sm" data-i18n="about_stat2">Destinos</p>
-       </div>
-       <div>
-        <p class="text-3xl font-bold text-white">5★</p>
-        <p class="text-gray-400 text-sm" data-i18n="about_stat3">Calificación</p>
+    <section id="about" class="py-20 px-4 gradient-bg-dark">
+     <div class="max-w-5xl mx-auto fade-up">
+      <div class="text-center mb-10">
+       <h2 class="font-outfit font-800 text-3xl sm:text-5xl mb-4" data-i18n="about_title">Quiénes Somos</h2>
+      </div>
+      <div class="bg-white/5 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-white/10">
+       <div class="flex flex-col md:flex-row items-center gap-8">
+        <div class="w-24 h-24 rounded-2xl gradient-bg flex items-center justify-center shrink-0"><i data-lucide="globe" class="w-12 h-12 text-white"></i>
+        </div>
+        <p id="aboutText" class="text-gray-300 text-lg leading-relaxed">En Bendy Viajes nos especializamos en crear experiencias inolvidables alrededor del mundo, ofreciendo atención personalizada, confianza y los mejores destinos para nuestros clientes.</p>
        </div>
       </div>
      </div>
     </section><!-- CONTACT -->
-    <section class="py-20 px-4 bg-gray-50" id="contact">
-     <div class="max-w-6xl mx-auto">
-      <h2 class="text-3xl sm:text-4xl font-bold text-center mb-4 gradient-text" data-i18n="contact_title">Contáctanos</h2>
-      <p class="text-center text-gray-500 mb-12" data-i18n="contact_sub">Estamos listos para ayudarte a planificar tu próximo viaje</p>
-      <div class="grid md:grid-cols-2 gap-10">
-       <form id="contactForm" action="https://formspree.io/f/mzdograq" method="POST" class="space-y-4 bg-white p-8 rounded-2xl shadow-lg">
-        <div><label for="name" class="block text-sm font-medium text-gray-700 mb-1" data-i18n="form_name">Nombre completo</label> <input id="name" name="name" type="text" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-royal focus:ring-2 focus:ring-royal/20 outline-none transition">
+    <section id="contact" class="py-20 px-4 bg-dark">
+     <div class="max-w-5xl mx-auto fade-up">
+      <div class="text-center mb-12">
+       <h2 class="font-outfit font-800 text-3xl sm:text-5xl mb-4" data-i18n="contact_title">Contáctanos</h2>
+       <p class="text-gray-400" data-i18n="contact_sub">Estamos listos para ayudarte a planificar tu próximo viaje</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8"><!-- Form -->
+       <form action="https://formspree.io/f/mzdograq" method="POST" target="_blank" class="space-y-4">
+        <div><label for="name" class="block text-sm text-gray-400 mb-1" data-i18n="form_name">Nombre completo</label> <input type="text" id="name" name="name" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-royal focus:outline-none transition-colors">
         </div>
-        <div><label for="email" class="block text-sm font-medium text-gray-700 mb-1" data-i18n="form_email">Email</label> <input id="email" name="email" type="email" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-royal focus:ring-2 focus:ring-royal/20 outline-none transition">
+        <div><label for="email" class="block text-sm text-gray-400 mb-1">Email</label> <input type="email" id="email" name="email" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-royal focus:outline-none transition-colors">
         </div>
-        <div><label for="company" class="block text-sm font-medium text-gray-700 mb-1" data-i18n="form_company">Empresa (opcional)</label> <input id="company" name="company" type="text" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-royal focus:ring-2 focus:ring-royal/20 outline-none transition">
+        <div><label for="company" class="block text-sm text-gray-400 mb-1" data-i18n="form_company">Empresa (opcional)</label> <input type="text" id="company" name="company" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-royal focus:outline-none transition-colors">
         </div>
-        <div><label for="message" class="block text-sm font-medium text-gray-700 mb-1" data-i18n="form_message">Mensaje</label> <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-royal focus:ring-2 focus:ring-royal/20 outline-none transition resize-none"></textarea>
-        </div><button type="submit" id="contactBtn" class="w-full gradient-bg text-white py-3 rounded-xl font-semibold btn-glow hover:shadow-lg hover:shadow-royal/30 transition-all" data-i18n="form_send">Enviar mensaje</button>
-        <div id="formStatus" class="text-center text-sm hidden"></div>
-       </form>
+        <div><label for="message" class="block text-sm text-gray-400 mb-1" data-i18n="form_message">Mensaje</label> <textarea id="message" name="message" rows="4" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-royal focus:outline-none transition-colors resize-none"></textarea>
+        </div><button type="submit" class="btn-glow gradient-bg w-full py-4 rounded-xl font-semibold text-lg transition-all duration-300"> <span data-i18n="form_send">Enviar mensaje</span> </button>
+       </form><!-- Info -->
        <div class="space-y-6">
-        <div class="bg-white p-6 rounded-2xl shadow-md">
-         <div class="flex items-start gap-3 mb-4"><i data-lucide="map-pin" class="w-5 h-5 text-royal mt-1"></i>
+        <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
+         <div class="flex items-start gap-4"><i data-lucide="map-pin" class="w-5 h-5 text-royal mt-1"></i>
           <div>
-           <p class="font-medium" data-i18n="contact_address_label">Dirección</p>
-           <p class="text-gray-500 text-sm">Aeropuerto José Antonio Anzoátegui de Barcelona piso 1</p>
-          </div>
-         </div>
-         <div class="flex items-start gap-3 mb-4"><i data-lucide="mail" class="w-5 h-5 text-royal mt-1"></i>
-          <div>
-           <p class="font-medium" data-i18n="contact_email_label">Correo</p>
-           <p class="text-gray-500 text-sm">Bendytravel@gmail.com</p>
-          </div>
-         </div>
-         <div class="flex items-start gap-3"><i data-lucide="phone" class="w-5 h-5 text-royal mt-1"></i>
-          <div>
-           <p class="font-medium" data-i18n="contact_phone_label">Teléfonos</p>
-           <p class="text-gray-500 text-sm">Disponibles vía WhatsApp</p>
+           <p class="font-semibold mb-1" data-i18n="info_address">Dirección</p>
+           <p id="addressText" class="text-gray-400 text-sm">Aeropuerto José Antonio Anzoátegui de Barcelona piso 1</p>
           </div>
          </div>
         </div>
-        <div class="bg-white p-6 rounded-2xl shadow-md">
-         <p class="font-medium mb-3" data-i18n="contact_social">Síguenos</p>
-         <div class="flex gap-4"><a href="https://instagram.com/bendyviajes" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full gradient-bg flex items-center justify-center text-white hover:scale-110 transition-transform"><i data-lucide="instagram" class="w-5 h-5"></i></a> <a href="https://tiktok.com/@Tubendyviajes" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center text-white hover:scale-110 transition-transform">
-           <svg class="w-5 h-5" viewbox="0 0 24 24" fill="currentColor">
-            <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.88 2.89 2.89 0 01-2.88-2.88 2.89 2.89 0 012.88-2.88c.28 0 .56.04.82.1v-3.5a6.37 6.37 0 00-.82-.05A6.34 6.34 0 003.15 15.65 6.34 6.34 0 009.49 22a6.34 6.34 0 006.34-6.34V9.14a8.16 8.16 0 004.76 1.52v-3.4a4.85 4.85 0 01-1-.57z" />
-           </svg></a> <a href="https://facebook.com/BendyViajes" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white hover:scale-110 transition-transform"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+        <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
+         <div class="flex items-start gap-4"><i data-lucide="mail" class="w-5 h-5 text-royal mt-1"></i>
+          <div>
+           <p class="font-semibold mb-1">Email</p>
+           <p class="text-gray-400 text-sm">Bendytravel@gmail.com</p>
+          </div>
          </div>
+        </div>
+        <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
+         <div class="flex items-start gap-4"><i data-lucide="phone" class="w-5 h-5 text-royal mt-1"></i>
+          <div>
+           <p class="font-semibold mb-1" data-i18n="info_phones">Teléfonos</p>
+           <p class="text-gray-400 text-sm">+58 412-0000000<br>
+            +58 414-0000000</p>
+          </div>
+         </div>
+        </div>
+        <div class="flex gap-4 mt-4"><a href="https://instagram.com/bendyviajes" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-royal/20 hover:border-royal/50 transition-all"><i data-lucide="instagram" class="w-5 h-5"></i></a> <a href="https://tiktok.com/@tubendyviajes" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-royal/20 hover:border-royal/50 transition-all"><i data-lucide="video" class="w-5 h-5"></i></a> <a href="https://facebook.com/bendyviajes" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-royal/20 hover:border-royal/50 transition-all"><i data-lucide="facebook" class="w-5 h-5"></i></a>
         </div>
        </div>
       </div>
      </div>
-    </section><!-- FOOTER -->
-    <footer class="gradient-bg-dark py-12 px-4">
-     <div class="max-w-6xl mx-auto text-center">
-      <p class="text-2xl font-bold text-white mb-4">BENDY VIAJES</p>
-      <div class="flex justify-center gap-4 mb-6"><a href="https://instagram.com/bendyviajes" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition"><i data-lucide="instagram" class="w-5 h-5"></i></a> <a href="https://facebook.com/BendyViajes" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition"><i data-lucide="facebook" class="w-5 h-5"></i></a>
-      </div>
-      <p class="text-gray-500 text-sm">Bendytravel@gmail.com</p>
-      <p class="text-gray-600 text-xs mt-4">© 2024 Bendy Viajes. Todos los derechos reservados.</p>
+    </section>
+   </div><!-- SUBPAGES -->
+   <div id="page-boleteria" class="page-section"></div>
+   <div id="page-hoteles" class="page-section"></div>
+   <div id="page-cruceros" class="page-section"></div>
+   <div id="page-paquetes" class="page-section"></div>
+   <div id="page-tours" class="page-section"></div>
+   <div id="page-atracciones" class="page-section"></div>
+   <div id="page-seguros" class="page-section"></div>
+   <div id="page-promociones" class="page-section"></div><!-- FOOTER -->
+   <footer class="border-t border-white/5 py-10 px-4 bg-dark">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+     <div class="flex items-center gap-2">
+      <div class="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center"><span class="text-white font-bold text-xs">BV</span>
+      </div><span class="font-outfit font-bold">Bendy Viajes</span>
      </div>
-    </footer>
-   </div><!-- end page-home --> <!-- SUBPAGES -->
-   <div class="page-view" id="page-boleteria"></div>
-   <div class="page-view" id="page-hoteles"></div>
-   <div class="page-view" id="page-cruceros"></div>
-   <div class="page-view" id="page-paquetes"></div>
-   <div class="page-view" id="page-tours"></div>
-   <div class="page-view" id="page-atracciones"></div>
-   <div class="page-view" id="page-seguros"></div>
-   <div class="page-view" id="page-promociones"></div><!-- WHATSAPP BUTTON -->
-   <div class="fixed bottom-6 right-6 z-50">
-    <div class="whatsapp-menu absolute bottom-16 right-0 bg-white rounded-2xl shadow-2xl p-4 w-64" id="waMenu">
-     <p class="font-semibold text-sm mb-3 gradient-text" data-i18n="wa_title">¿En qué podemos ayudarte?</p>
-     <div class="space-y-2"><button onclick="openWhatsApp('Hola, quiero cotizar un viaje ✈️')" class="w-full text-left text-sm px-3 py-2 rounded-lg hover:bg-gray-100 transition">✈️ <span data-i18n="wa_opt1">Cotizar viaje</span></button> <button onclick="openWhatsApp('Hola, quiero reservar un hotel 🏨')" class="w-full text-left text-sm px-3 py-2 rounded-lg hover:bg-gray-100 transition">🏨 <span data-i18n="wa_opt2">Reservar hotel</span></button> <button onclick="openWhatsApp('Hola, necesito información de cruceros 🚢')" class="w-full text-left text-sm px-3 py-2 rounded-lg hover:bg-gray-100 transition">🚢 <span data-i18n="wa_opt3">Información de cruceros</span></button> <button onclick="openWhatsApp('Hola, me interesan los paquetes turísticos 🎒')" class="w-full text-left text-sm px-3 py-2 rounded-lg hover:bg-gray-100 transition">🎒 <span data-i18n="wa_opt4">Paquetes turísticos</span></button> <button onclick="openWhatsApp('Hola, necesito atención personalizada 📞')" class="w-full text-left text-sm px-3 py-2 rounded-lg hover:bg-gray-100 transition">📞 <span data-i18n="wa_opt5">Atención personalizada</span></button>
+     <div class="flex gap-4"><a href="https://instagram.com/bendyviajes" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a> <a href="https://tiktok.com/@tubendyviajes" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="video" class="w-5 h-5"></i></a> <a href="https://facebook.com/bendyviajes" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="facebook" class="w-5 h-5"></i></a>
      </div>
-    </div><button onclick="toggleWaMenu()" class="w-14 h-14 rounded-full bg-green-500 flex items-center justify-center shadow-lg hover:scale-110 transition-transform hover:shadow-green-500/40">
-     <svg class="w-7 h-7 text-white" viewbox="0 0 24 24" fill="currentColor">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" /><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 01-4.243-1.214l-.29-.175-3.01.789.803-2.927-.192-.306A8 8 0 1112 20z" />
-     </svg></button>
-   </div><!-- TOAST -->
-   <div class="toast bg-green-500 text-white px-6 py-3 rounded-xl shadow-lg font-medium" id="toast"></div>
-  </div><!-- end app-root -->
-  <script>
-// --- CONFIG & SDK ---
-const defaultConfig = {
-  hero_title: 'Descubre el mundo con Bendy Viajes',
-  hero_subtitle: 'Experiencias únicas, destinos inolvidables',
-  about_text: 'En Bendy Viajes nos especializamos en crear experiencias inolvidables alrededor del mundo, ofreciendo atención personalizada, confianza y los mejores destinos para nuestros clientes.',
-  background_color: '#ffffff',
-  surface_color: '#f9fafb',
-  text_color: '#111827',
-  primary_action_color: '#0B3CFF',
-  secondary_action_color: '#6A0DAD'
-};
-
-let config = { ...defaultConfig };
-
-window.elementSdk.init({
-  defaultConfig,
-  onConfigChange: async (c) => {
-    config = c;
-    const heroEl = document.getElementById('heroTitle');
-    if (heroEl) heroEl.innerHTML = (c.hero_title || defaultConfig.hero_title).replace('Bendy Viajes', '<span class="gradient-text">Bendy Viajes</span>');
-    const subEl = document.getElementById('heroSubtitle');
-    if (subEl) subEl.textContent = c.hero_subtitle || defaultConfig.hero_subtitle;
-    const aboutEl = document.getElementById('aboutText');
-    if (aboutEl) aboutEl.textContent = c.about_text || defaultConfig.about_text;
-  },
-  mapToCapabilities: (c) => ({
-    recolorables: [
-      { get: () => c.background_color || defaultConfig.background_color, set: (v) => { c.background_color = v; window.elementSdk.setConfig({ background_color: v }); } },
-      { get: () => c.surface_color || defaultConfig.surface_color, set: (v) => { c.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); } },
-      { get: () => c.text_color || defaultConfig.text_color, set: (v) => { c.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
-      { get: () => c.primary_action_color || defaultConfig.primary_action_color, set: (v) => { c.primary_action_color = v; window.elementSdk.setConfig({ primary_action_color: v }); } },
-      { get: () => c.secondary_action_color || defaultConfig.secondary_action_color, set: (v) => { c.secondary_action_color = v; window.elementSdk.setConfig({ secondary_action_color: v }); } }
-    ],
-    borderables: [],
-    fontEditable: undefined,
-    fontSizeable: undefined
-  }),
-  mapToEditPanelValues: (c) => new Map([
-    ['hero_title', c.hero_title || defaultConfig.hero_title],
-    ['hero_subtitle', c.hero_subtitle || defaultConfig.hero_subtitle],
-    ['about_text', c.about_text || defaultConfig.about_text]
-  ])
-});
-
-// --- DATA SDK ---
-const dataHandler = { onDataChanged(data) {} };
-window.dataSdk.init(dataHandler);
-
-// --- TRANSLATIONS ---
-let currentLang = 'es';
-const translations = {
-  es: {
-    nav_home: 'Inicio', nav_services: 'Servicios', nav_promos: 'Promociones', nav_about: 'Nosotros', nav_contact: 'Contacto',
-    hero_btn: 'Explorar destinos', services_title: 'Nuestros Servicios', services_sub: 'Todo lo que necesitas para tu próxima aventura',
-    srv_tickets: 'Boletería', srv_hotels: 'Hoteles', srv_cruises: 'Cruceros', srv_packages: 'Paquetes', srv_tours: 'Tours', srv_attractions: 'Atracciones', srv_insurance: 'Seguros de Viaje', srv_promos: 'Promociones',
-    promo_title: 'Ofertas Especiales', promo_sub: 'Aprovecha nuestras mejores promociones',
-    promo1_title: 'Caribe Todo Incluido', promo1_desc: '7 noches · Vuelo + Hotel + Comidas',
-    promo2_title: 'Europa Clásica', promo2_desc: '12 días · 5 países · Guía incluida',
-    promo3_title: 'Crucero Mediterráneo', promo3_desc: '8 noches · Desde Barcelona',
-    promo_btn: 'Consultar',
-    about_title: 'Quiénes Somos', about_text: 'En Bendy Viajes nos especializamos en crear experiencias inolvidables alrededor del mundo, ofreciendo atención personalizada, confianza y los mejores destinos para nuestros clientes.',
-    about_stat1: 'Clientes felices', about_stat2: 'Destinos', about_stat3: 'Calificación',
-    contact_title: 'Contáctanos', contact_sub: 'Estamos listos para ayudarte a planificar tu próximo viaje',
-    form_name: 'Nombre completo', form_email: 'Email', form_company: 'Empresa (opcional)', form_message: 'Mensaje', form_send: 'Enviar mensaje',
-    contact_address_label: 'Dirección', contact_email_label: 'Correo', contact_phone_label: 'Teléfonos', contact_social: 'Síguenos',
-    wa_title: '¿En qué podemos ayudarte?', wa_opt1: 'Cotizar viaje', wa_opt2: 'Reservar hotel', wa_opt3: 'Información de cruceros', wa_opt4: 'Paquetes turísticos', wa_opt5: 'Atención personalizada',
-    sub_back: '← Volver', sub_contact_btn: 'Contactar por WhatsApp',
-    sub_boleteria_title: 'Boletería Aérea', sub_boleteria_desc: 'Encuentra los mejores precios en boletos aéreos nacionales e internacionales. Trabajamos con las principales aerolíneas para ofrecerte las tarifas más competitivas y las mejores rutas para tu destino.',
-    sub_hoteles_title: 'Hoteles', sub_hoteles_desc: 'Reserva en los mejores hoteles del mundo con precios exclusivos. Desde hoteles boutique hasta resorts de lujo, encontramos la opción perfecta para tu estilo y presupuesto.',
-    sub_cruceros_title: 'Cruceros', sub_cruceros_desc: 'Vive la experiencia única de navegar por los océanos del mundo. Ofrecemos cruceros por el Caribe, Mediterráneo, Alaska y más destinos con las mejores navieras.',
-    sub_paquetes_title: 'Paquetes Turísticos', sub_paquetes_desc: 'Paquetes completos que incluyen vuelo, hotel, traslados y excursiones. Viaja sin preocupaciones con nuestros paquetes todo incluido diseñados para ti.',
-    sub_tours_title: 'Tours Guiados', sub_tours_desc: 'Explora los destinos más increíbles con guías expertos. Nuestros tours incluyen visitas a lugares emblemáticos, experiencias culturales y aventuras inolvidables.',
-    sub_atracciones_title: 'Atracciones', sub_atracciones_desc: 'Accede a las mejores atracciones turísticas del mundo con entradas preferenciales. Parques temáticos, museos, espectáculos y experiencias únicas.',
-    sub_seguros_title: 'Seguros de Viaje', sub_seguros_desc: 'Viaja protegido con nuestros seguros de viaje integrales. Cobertura médica, cancelación de vuelos, pérdida de equipaje y asistencia 24/7 en todo el mundo.',
-    sub_promociones_title: 'Promociones', sub_promociones_desc: 'Descubre nuestras ofertas especiales y descuentos exclusivos. Actualizamos constantemente nuestras promociones para que viajes más por menos.',
-    toast_sent: '¡Mensaje enviado con éxito!'
-  },
-  en: {
-    nav_home: 'Home', nav_services: 'Services', nav_promos: 'Deals', nav_about: 'About', nav_contact: 'Contact',
-    hero_btn: 'Explore destinations', services_title: 'Our Services', services_sub: 'Everything you need for your next adventure',
-    srv_tickets: 'Flights', srv_hotels: 'Hotels', srv_cruises: 'Cruises', srv_packages: 'Packages', srv_tours: 'Tours', srv_attractions: 'Attractions', srv_insurance: 'Travel Insurance', srv_promos: 'Deals',
-    promo_title: 'Special Offers', promo_sub: 'Take advantage of our best deals',
-    promo1_title: 'Caribbean All-Inclusive', promo1_desc: '7 nights · Flight + Hotel + Meals',
-    promo2_title: 'Classic Europe', promo2_desc: '12 days · 5 countries · Guide included',
-    promo3_title: 'Mediterranean Cruise', promo3_desc: '8 nights · From Barcelona',
-    promo_btn: 'Inquire',
-    about_title: 'About Us', about_text: 'At Bendy Viajes we specialize in creating unforgettable experiences around the world, offering personalized attention, trust, and the best destinations for our clients.',
-    about_stat1: 'Happy clients', about_stat2: 'Destinations', about_stat3: 'Rating',
-    contact_title: 'Contact Us', contact_sub: 'We are ready to help you plan your next trip',
-    form_name: 'Full name', form_email: 'Email', form_company: 'Company (optional)', form_message: 'Message', form_send: 'Send message',
-    contact_address_label: 'Address', contact_email_label: 'Email', contact_phone_label: 'Phones', contact_social: 'Follow us',
-    wa_title: 'How can we help you?', wa_opt1: 'Quote a trip', wa_opt2: 'Book a hotel', wa_opt3: 'Cruise info', wa_opt4: 'Tour packages', wa_opt5: 'Personal assistance',
-    sub_back: '← Back', sub_contact_btn: 'Contact via WhatsApp',
-    sub_boleteria_title: 'Flight Tickets', sub_boleteria_desc: 'Find the best prices on domestic and international flights. We work with major airlines to offer you the most competitive fares and best routes.',
-    sub_hoteles_title: 'Hotels', sub_hoteles_desc: 'Book the best hotels worldwide at exclusive prices. From boutique hotels to luxury resorts, we find the perfect option for your style and budget.',
-    sub_cruceros_title: 'Cruises', sub_cruceros_desc: 'Experience the unique adventure of sailing the world\'s oceans. We offer cruises in the Caribbean, Mediterranean, Alaska and more.',
-    sub_paquetes_title: 'Tour Packages', sub_paquetes_desc: 'Complete packages including flights, hotels, transfers, and excursions. Travel worry-free with our all-inclusive packages designed for you.',
-    sub_tours_title: 'Guided Tours', sub_tours_desc: 'Explore the most incredible destinations with expert guides. Our tours include visits to iconic places, cultural experiences and unforgettable adventures.',
-    sub_atracciones_title: 'Attractions', sub_atracciones_desc: 'Access the world\'s best tourist attractions with preferential tickets. Theme parks, museums, shows and unique experiences.',
-    sub_seguros_title: 'Travel Insurance', sub_seguros_desc: 'Travel protected with our comprehensive travel insurance. Medical coverage, flight cancellation, luggage loss and 24/7 assistance worldwide.',
-    sub_promociones_title: 'Deals & Offers', sub_promociones_desc: 'Discover our special offers and exclusive discounts. We constantly update our promotions so you can travel more for less.',
-    toast_sent: 'Message sent successfully!'
-  }
-};
-
-function toggleLang() {
-  currentLang = currentLang === 'es' ? 'en' : 'es';
-  document.getElementById('langBtn').textContent = currentLang === 'es' ? 'EN' : 'ES';
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (translations[currentLang][key]) el.textContent = translations[currentLang][key];
-  });
-  // Re-render active subpage
-  const activeSub = document.querySelector('.page-view.active[id^="page-"]:not(#page-home)');
-  if (activeSub) {
-    const pageId = activeSub.id.replace('page-', '');
-    renderSubpage(pageId);
-  }
-}
-
-// --- NAVIGATION ---
-function showPage(id) {
-  document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active'));
-  const page = document.getElementById('page-' + id);
-  if (page) {
-    page.classList.add('active');
-    if (id !== 'home') renderSubpage(id);
-  }
-  document.querySelector('.app-root').scrollTop = 0;
-}
-
-function scrollToSection(id) {
-  showPage('home');
-  setTimeout(() => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  }, 100);
-}
-
-function toggleMobileMenu() {
-  document.getElementById('mobileMenu').classList.toggle('hidden');
-}
-
-// --- SUBPAGES ---
-const subpageIcons = { boleteria: 'plane', hoteles: 'building', cruceros: 'ship', paquetes: 'package', tours: 'map', atracciones: 'landmark', seguros: 'shield-check', promociones: 'percent' };
-const subpageGradients = { boleteria: 'from-blue-500 to-indigo-600', hoteles: 'from-emerald-500 to-teal-600', cruceros: 'from-cyan-500 to-blue-600', paquetes: 'from-orange-500 to-red-500', tours: 'from-pink-500 to-rose-600', atracciones: 'from-violet-500 to-purple-600', seguros: 'from-green-500 to-emerald-600', promociones: 'from-yellow-500 to-amber-600' };
-
-function renderSubpage(id) {
-  const t = translations[currentLang];
-  const page = document.getElementById('page-' + id);
-  const grad = subpageGradients[id] || 'from-blue-500 to-indigo-600';
-  const icon = subpageIcons[id] || 'globe';
-  page.innerHTML = `
-    <div class="pt-20 min-h-[500px]">
-      <div class="bg-gradient-to-br ${grad} py-16 px-4 text-center text-white relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10"><div class="absolute top-10 left-10 w-40 h-40 border border-white/30 rounded-full"></div><div class="absolute bottom-10 right-10 w-60 h-60 border border-white/20 rounded-full"></div></div>
-        <div class="relative z-10">
-          <i data-lucide="${icon}" class="w-16 h-16 mx-auto mb-4 opacity-80"></i>
-          <h1 class="text-3xl sm:text-4xl font-bold mb-2">${t['sub_' + id + '_title'] || id}</h1>
-        </div>
-      </div>
-      <div class="max-w-4xl mx-auto px-4 py-12">
-        <button onclick="showPage('home')" class="text-royal font-medium mb-8 inline-flex items-center gap-2 hover:gap-3 transition-all">${t.sub_back}</button>
-        <p class="text-gray-600 text-lg leading-relaxed mb-8">${t['sub_' + id + '_desc'] || ''}</p>
-        <div class="grid sm:grid-cols-2 gap-4 mb-8">
-          <div class="h-48 rounded-2xl bg-gradient-to-br ${grad} opacity-30 flex items-center justify-center"><span class="text-gray-500 text-sm">📷 Imagen placeholder</span></div>
-          <div class="h-48 rounded-2xl bg-gradient-to-br ${grad} opacity-20 flex items-center justify-center"><span class="text-gray-500 text-sm">📷 Imagen placeholder</span></div>
-        </div>
-        <button onclick="openWhatsApp('Hola, me interesa el servicio de ${t['sub_' + id + '_title']}')" class="gradient-bg text-white px-6 py-3 rounded-full font-semibold btn-glow hover:shadow-lg transition-all">${t.sub_contact_btn}</button>
-      </div>
+     <p class="text-gray-500 text-sm">© 2025 Bendy Viajes. <span data-i18n="rights">Todos los derechos reservados.</span></p>
     </div>
-  `;
-  lucide.createIcons();
-}
+   </footer><!-- WHATSAPP FLOATING -->
+   <div class="fixed bottom-6 right-6 z-50">
+    <div id="waMenu" class="whatsapp-menu absolute bottom-16 right-0 bg-dark/95 backdrop-blur-lg border border-white/10 rounded-2xl p-4 w-64 space-y-2 shadow-2xl"><a href="https://wa.me/584120000000?text=Hola%2C%20quiero%20cotizar%20un%20viaje" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors"> <span>✈️</span><span class="text-sm" data-i18n="wa_quote">Cotizar viaje</span> </a> <a href="https://wa.me/584120000000?text=Hola%2C%20quiero%20reservar%20un%20hotel" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors"> <span>🏨</span><span class="text-sm" data-i18n="wa_hotel">Reservar hotel</span> </a> <a href="https://wa.me/584120000000?text=Hola%2C%20quiero%20información%20de%20cruceros" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors"> <span>🚢</span><span class="text-sm" data-i18n="wa_cruise">Información de cruceros</span> </a> <a href="https://wa.me/584120000000?text=Hola%2C%20quiero%20información%20de%20paquetes%20turísticos" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors"> <span>🎒</span><span class="text-sm" data-i18n="wa_packages">Paquetes turísticos</span> </a> <a href="https://wa.me/584120000000?text=Hola%2C%20necesito%20atención%20personalizada" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors"> <span>📞</span><span class="text-sm" data-i18n="wa_support">Atención personalizada</span> </a>
+    </div><button onclick="toggleWaMenu()" class="wa-pulse w-14 h-14 rounded-full bg-green-500 flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+     <svg class="w-7 h-7 text-white" fill="currentColor" viewbox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" /><path d="M12 0C5.373 0 0 5.373 0 12c0 2.138.56 4.146 1.54 5.886L0 24l6.304-1.654A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.97 0-3.834-.53-5.445-1.455l-.39-.232-3.742.982.999-3.648-.254-.404A9.72 9.72 0 012.25 12 9.75 9.75 0 0112 2.25 9.75 9.75 0 0121.75 12 9.75 9.75 0 0112 21.75z" />
+     </svg></button>
+   </div>
+  </div>
+  <script>
+    // Services data
+    const services = [
+      { id: 'boleteria', icon: 'ticket', title: 'Boletería', titleEn: 'Flights', desc: 'Vuelos nacionales e internacionales al mejor precio', descEn: 'Domestic and international flights at the best price', color: 'from-blue-500 to-indigo-600' },
+      { id: 'hoteles', icon: 'building', title: 'Hoteles', titleEn: 'Hotels', desc: 'Alojamientos de lujo y económicos en todo el mundo', descEn: 'Luxury and budget accommodations worldwide', color: 'from-purple-500 to-pink-600' },
+      { id: 'cruceros', icon: 'ship', title: 'Cruceros', titleEn: 'Cruises', desc: 'Navega por los destinos más exclusivos', descEn: 'Sail to the most exclusive destinations', color: 'from-cyan-500 to-blue-600' },
+      { id: 'paquetes', icon: 'package', title: 'Paquetes', titleEn: 'Packages', desc: 'Todo incluido para viajes sin preocupaciones', descEn: 'All-inclusive for worry-free travel', color: 'from-green-500 to-teal-600' },
+      { id: 'tours', icon: 'map', title: 'Tours', titleEn: 'Tours', desc: 'Excursiones guiadas a destinos increíbles', descEn: 'Guided excursions to incredible destinations', color: 'from-orange-500 to-red-600' },
+      { id: 'atracciones', icon: 'ferris-wheel', title: 'Atracciones', titleEn: 'Attractions', desc: 'Entradas a parques y atracciones turísticas', descEn: 'Tickets to parks and tourist attractions', color: 'from-yellow-500 to-orange-600' },
+      { id: 'seguros', icon: 'shield-check', title: 'Seguros de Viaje', titleEn: 'Travel Insurance', desc: 'Protección completa para tu tranquilidad', descEn: 'Full protection for your peace of mind', color: 'from-emerald-500 to-green-600' },
+      { id: 'promociones', icon: 'percent', title: 'Promociones', titleEn: 'Promotions', desc: 'Ofertas exclusivas y descuentos especiales', descEn: 'Exclusive offers and special discounts', color: 'from-rose-500 to-purple-600' }
+    ];
 
-// --- WHATSAPP ---
-function toggleWaMenu() {
-  document.getElementById('waMenu').classList.toggle('open');
-}
+    const promotions = [
+      { dest: 'Cancún, México', duration: '5 noches', durationEn: '5 nights', price: 'Desde $599', priceEn: 'From $599', tag: '🔥 Hot Deal' },
+      { dest: 'Punta Cana', duration: '7 noches', durationEn: '7 nights', price: 'Desde $799', priceEn: 'From $799', tag: '⭐ Bestseller' },
+      { dest: 'Europa Tour', duration: '10 días', durationEn: '10 days', price: 'Desde $1,299', priceEn: 'From $1,299', tag: '✨ Premium' }
+    ];
 
-function openWhatsApp(msg) {
-  const phone = '584121234567';
-  const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
-  window.open(url, '_blank');
-  document.getElementById('waMenu').classList.remove('open');
-}
+    // Translations
+    const translations = {
+      es: {},
+      en: {
+        explore_btn: 'Explore destinations',
+        services_title: 'Our Services',
+        services_sub: 'Everything you need for your next adventure',
+        promos_title: 'Special Promotions',
+        promos_sub: 'Exclusive offers for travelers',
+        about_title: 'About Us',
+        contact_title: 'Contact Us',
+        contact_sub: "We're ready to help you plan your next trip",
+        form_name: 'Full name',
+        form_company: 'Company (optional)',
+        form_message: 'Message',
+        form_send: 'Send message',
+        info_address: 'Address',
+        info_phones: 'Phones',
+        rights: 'All rights reserved.',
+        wa_quote: 'Quote a trip',
+        wa_hotel: 'Book hotel',
+        wa_cruise: 'Cruise info',
+        wa_packages: 'Tour packages',
+        wa_support: 'Personal support',
+        back_home: '← Back to home'
+      }
+    };
 
-// --- CONTACT FORM ---
-// Form now submits directly to Formspree.io
+    let currentLang = 'es';
 
-function showToast(msg, isError) {
-  const toast = document.getElementById('toast');
-  toast.textContent = msg;
-  toast.className = `toast ${isError ? 'bg-red-500' : 'bg-green-500'} text-white px-6 py-3 rounded-xl shadow-lg font-medium show`;
-  setTimeout(() => toast.classList.remove('show'), 3000);
-}
+    // Render services grid
+    function renderServices() {
+      const grid = document.getElementById('servicesGrid');
+      grid.innerHTML = services.map(s => `
+        <div class="card-hover cursor-pointer bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10" onclick="showPage('${s.id}')">
+          <div class="card-img-wrap h-40 bg-gradient-to-br ${s.color} flex items-center justify-center">
+            <i data-lucide="${s.icon}" class="w-12 h-12 text-white/90"></i>
+          </div>
+          <div class="p-5">
+            <h3 class="font-outfit font-bold text-lg mb-1">${currentLang === 'es' ? s.title : s.titleEn}</h3>
+            <p class="text-gray-400 text-sm">${currentLang === 'es' ? s.desc : s.descEn}</p>
+          </div>
+        </div>
+      `).join('');
+      lucide.createIcons();
+    }
 
-// --- SCROLL ANIMATIONS ---
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-}, { threshold: 0.1 });
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    // Render promotions
+    function renderPromos() {
+      const grid = document.getElementById('promosGrid');
+      grid.innerHTML = promotions.map(p => `
+        <div class="promo-card rounded-2xl p-6 card-hover">
+          <span class="text-xs font-semibold px-3 py-1 rounded-full gradient-bg inline-block mb-4">${p.tag}</span>
+          <h3 class="font-outfit font-bold text-xl mb-2">${p.dest}</h3>
+          <p class="text-gray-400 text-sm mb-3">${currentLang === 'es' ? p.duration : p.durationEn}</p>
+          <p class="gradient-text font-bold text-2xl">${currentLang === 'es' ? p.price : p.priceEn}</p>
+        </div>
+      `).join('');
+    }
 
-// --- INIT ---
-lucide.createIcons();
-</script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f7344d1a6167ab1',t:'MTc3ODAyMTA1Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+    // Generate subpage content
+    function renderSubpage(id) {
+      const s = services.find(sv => sv.id === id);
+      if (!s) return;
+      const page = document.getElementById(`page-${id}`);
+      const title = currentLang === 'es' ? s.title : s.titleEn;
+      const desc = currentLang === 'es' ? s.desc : s.descEn;
+      const backText = currentLang === 'es' ? '← Volver al inicio' : '← Back to home';
+      page.innerHTML = `
+        <div class="pt-16">
+          <div class="subpage-hero flex items-center justify-center text-center px-4 py-16">
+            <div>
+              <i data-lucide="${s.icon}" class="w-16 h-16 text-white/80 mx-auto mb-4"></i>
+              <h1 class="font-outfit font-900 text-4xl sm:text-5xl mb-2">${title}</h1>
+              <p class="text-white/70 text-lg">${desc}</p>
+            </div>
+          </div>
+          <div class="max-w-4xl mx-auto py-16 px-4 space-y-8">
+            <div class="bg-white/5 rounded-2xl p-8 border border-white/10">
+              <h2 class="font-outfit font-bold text-2xl mb-4">${currentLang === 'es' ? 'Sobre este servicio' : 'About this service'}</h2>
+              <p class="text-gray-300 leading-relaxed mb-6">${currentLang === 'es'
+                ? `En Bendy Viajes te ofrecemos el mejor servicio de ${title.toLowerCase()} con atención personalizada, precios competitivos y opciones adaptadas a tus necesidades. Trabajamos con los mejores proveedores para garantizar tu satisfacción.`
+                : `At Bendy Viajes we offer you the best ${(s.titleEn || title).toLowerCase()} service with personalized attention, competitive prices and options adapted to your needs. We work with the best providers to guarantee your satisfaction.`
+              }</p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="h-40 rounded-xl bg-gradient-to-br ${s.color} flex items-center justify-center">
+                  <i data-lucide="${s.icon}" class="w-16 h-16 text-white/60"></i>
+                </div>
+                <div class="h-40 rounded-xl bg-gradient-to-br ${s.color} opacity-70 flex items-center justify-center">
+                  <i data-lucide="sparkles" class="w-16 h-16 text-white/60"></i>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <button onclick="showPage('home')" class="px-6 py-3 rounded-xl border border-white/20 hover:bg-white/5 transition-colors font-medium">${backText}</button>
+              <a href="https://wa.me/584120000000?text=Hola%2C%20quiero%20información%20sobre%20${encodeURIComponent(title)}" target="_blank" rel="noopener noreferrer" class="btn-glow gradient-bg px-6 py-3 rounded-xl font-medium text-center">${currentLang === 'es' ? 'Contactar por WhatsApp' : 'Contact via WhatsApp'}</a>
+            </div>
+          </div>
+        </div>
+      `;
+      lucide.createIcons();
+    }
+
+    // Page navigation
+    function showPage(id) {
+      document.querySelectorAll('.page-section').forEach(p => p.classList.remove('active'));
+      const target = document.getElementById(`page-${id}`);
+      if (target) {
+        target.classList.add('active');
+        if (id !== 'home') renderSubpage(id);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    function scrollToSection(id) {
+      setTimeout(() => {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+
+    // WhatsApp menu
+    function toggleWaMenu() {
+      document.getElementById('waMenu').classList.toggle('active');
+    }
+
+    // Mobile menu
+    function toggleMobileMenu() {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    }
+
+    // Language toggle
+    function toggleLang() {
+      currentLang = currentLang === 'es' ? 'en' : 'es';
+      document.getElementById('langBtn').textContent = currentLang === 'es' ? 'EN' : 'ES';
+      applyTranslations();
+      renderServices();
+      renderPromos();
+    }
+
+    function applyTranslations() {
+      if (currentLang === 'es') {
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          // Reset to original (stored in data attribute)
+          if (el.dataset.original) el.textContent = el.dataset.original;
+        });
+      } else {
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+          const key = el.dataset.i18n;
+          if (!el.dataset.original) el.dataset.original = el.textContent;
+          if (translations.en[key]) el.textContent = translations.en[key];
+        });
+      }
+    }
+
+    // Scroll animations
+    function handleScrollAnimations() {
+      document.querySelectorAll('.fade-up').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.85) el.classList.add('visible');
+      });
+    }
+
+    // Close WA menu on outside click
+    document.addEventListener('click', (e) => {
+      const waBtn = e.target.closest('[onclick="toggleWaMenu()"]');
+      const waMenu = document.getElementById('waMenu');
+      if (!waBtn && !waMenu.contains(e.target)) waMenu.classList.remove('active');
+    });
+
+    // Init
+    renderServices();
+    renderPromos();
+    handleScrollAnimations();
+    window.addEventListener('scroll', handleScrollAnimations);
+    lucide.createIcons();
+
+    // Element SDK
+    const defaultConfig = {
+      hero_title: 'Descubre el mundo con Bendy Viajes',
+      hero_subtitle: 'Experiencias únicas, destinos inolvidables',
+      about_text: 'En Bendy Viajes nos especializamos en crear experiencias inolvidables alrededor del mundo, ofreciendo atención personalizada, confianza y los mejores destinos para nuestros clientes.',
+      contact_address: 'Aeropuerto José Antonio Anzoátegui de Barcelona piso 1',
+      background_color: '#0a0a1a',
+      surface_color: '#1a1a3e',
+      text_color: '#ffffff',
+      primary_action_color: '#0B3CFF',
+      secondary_action_color: '#6A0DAD',
+      font_family: 'Outfit',
+      font_size: 16
+    };
+
+    window.elementSdk.init({
+      defaultConfig,
+      onConfigChange: async (config) => {
+        const c = { ...defaultConfig, ...config };
+        document.getElementById('heroTitle').innerHTML = `${c.hero_title.replace('Bendy Viajes', '<span class="gradient-text">Bendy Viajes</span>')}`;
+        document.getElementById('heroSubtitle').textContent = c.hero_subtitle;
+        document.getElementById('aboutText').textContent = c.about_text;
+        document.getElementById('addressText').textContent = c.contact_address;
+        document.body.style.fontFamily = `${c.font_family}, Outfit, sans-serif`;
+        document.body.style.fontSize = `${c.font_size}px`;
+        document.body.style.backgroundColor = c.background_color;
+        document.body.style.color = c.text_color;
+      },
+      mapToCapabilities: (config) => {
+        const c = { ...defaultConfig, ...config };
+        return {
+          recolorables: [
+            { get: () => c.background_color, set: (v) => { c.background_color = v; window.elementSdk.setConfig({ background_color: v }); } },
+            { get: () => c.surface_color, set: (v) => { c.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); } },
+            { get: () => c.text_color, set: (v) => { c.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
+            { get: () => c.primary_action_color, set: (v) => { c.primary_action_color = v; window.elementSdk.setConfig({ primary_action_color: v }); } },
+            { get: () => c.secondary_action_color, set: (v) => { c.secondary_action_color = v; window.elementSdk.setConfig({ secondary_action_color: v }); } }
+          ],
+          borderables: [],
+          fontEditable: { get: () => c.font_family, set: (v) => { c.font_family = v; window.elementSdk.setConfig({ font_family: v }); } },
+          fontSizeable: { get: () => c.font_size, set: (v) => { c.font_size = v; window.elementSdk.setConfig({ font_size: v }); } }
+        };
+      },
+      mapToEditPanelValues: (config) => {
+        const c = { ...defaultConfig, ...config };
+        return new Map([
+          ['hero_title', c.hero_title],
+          ['hero_subtitle', c.hero_subtitle],
+          ['about_text', c.about_text],
+          ['contact_address', c.contact_address]
+        ]);
+      }
+    });
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f735c87a6f70da0',t:'MTc3ODAyMjAyNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
