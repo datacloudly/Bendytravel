@@ -240,14 +240,14 @@
   <script>
     // Services data
     const services = [
-      { id: 'boleteria', icon: 'ticket', title: 'Boletería', titleEn: 'Flights', desc: 'Vuelos nacionales e internacionales al mejor precio', descEn: 'Domestic and international flights at the best price', color: 'from-blue-500 to-indigo-600' },
-      { id: 'hoteles', icon: 'building', title: 'Hoteles', titleEn: 'Hotels', desc: 'Alojamientos de lujo y económicos en todo el mundo', descEn: 'Luxury and budget accommodations worldwide', color: 'from-purple-500 to-pink-600' },
-      { id: 'cruceros', icon: 'ship', title: 'Cruceros', titleEn: 'Cruises', desc: 'Navega por los destinos más exclusivos', descEn: 'Sail to the most exclusive destinations', color: 'from-cyan-500 to-blue-600' },
-      { id: 'paquetes', icon: 'package', title: 'Paquetes', titleEn: 'Packages', desc: 'Todo incluido para viajes sin preocupaciones', descEn: 'All-inclusive for worry-free travel', color: 'from-green-500 to-teal-600' },
-      { id: 'tours', icon: 'map', title: 'Tours', titleEn: 'Tours', desc: 'Excursiones guiadas a destinos increíbles', descEn: 'Guided excursions to incredible destinations', color: 'from-orange-500 to-red-600' },
-      { id: 'atracciones', icon: 'ferris-wheel', title: 'Atracciones', titleEn: 'Attractions', desc: 'Entradas a parques y atracciones turísticas', descEn: 'Tickets to parks and tourist attractions', color: 'from-yellow-500 to-orange-600' },
-      { id: 'seguros', icon: 'shield-check', title: 'Seguros de Viaje', titleEn: 'Travel Insurance', desc: 'Protección completa para tu tranquilidad', descEn: 'Full protection for your peace of mind', color: 'from-emerald-500 to-green-600' },
-      { id: 'promociones', icon: 'percent', title: 'Promociones', titleEn: 'Promotions', desc: 'Ofertas exclusivas y descuentos especiales', descEn: 'Exclusive offers and special discounts', color: 'from-rose-500 to-purple-600' }
+      { id: 'boleteria', icon: 'ticket', title: 'Boletería', titleEn: 'Flights', desc: 'Vuelos nacionales e internacionales al mejor precio', descEn: 'Domestic and international flights at the best price', color: 'from-blue-500 to-indigo-600', image: 'https://imgur.com/SknXZcU.jpg', gallery: ['https://imgur.com/FcVRgvA.jpg', 'https://imgur.com/5Njq4Wr.jpg'] },
+      { id: 'hoteles', icon: 'building', title: 'Hoteles', titleEn: 'Hotels', desc: 'Alojamientos de lujo y económicos en todo el mundo', descEn: 'Luxury and budget accommodations worldwide', color: 'from-purple-500 to-pink-600', image: 'https://imgur.com/PEGA_PORTADA_HOTELES', gallery: ['https://imgur.com/PEGA_GALERIA1_HOTELES', 'https://imgur.com/PEGA_GALERIA2_HOTELES'] },
+      { id: 'cruceros', icon: 'ship', title: 'Cruceros', titleEn: 'Cruises', desc: 'Navega por los destinos más exclusivos', descEn: 'Sail to the most exclusive destinations', color: 'from-cyan-500 to-blue-600', image: 'https://imgur.com/ZZsO0LQ.jpg', gallery: ['https://imgur.com/jdlMF5M.jpg', 'https://imgur.com/oVtd20z.jpg'] },
+      { id: 'paquetes', icon: 'package', title: 'Paquetes', titleEn: 'Packages', desc: 'Todo incluido para viajes sin preocupaciones', descEn: 'All-inclusive for worry-free travel', color: 'from-green-500 to-teal-600', image: 'https://imgur.com/PEGA_PORTADA_PAQUETES', gallery: ['https://imgur.com/PEGA_GALERIA1_PAQUETES', 'https://imgur.com/PEGA_GALERIA2_PAQUETES'] },
+      { id: 'tours', icon: 'map', title: 'Tours', titleEn: 'Tours', desc: 'Excursiones guiadas a destinos increíbles', descEn: 'Guided excursions to incredible destinations', color: 'from-orange-500 to-red-600', image: 'https://imgur.com/wWmTPO2.jpg', gallery: ['https://imgur.com/CewqTpR.jpg', 'https://imgur.com/sLztBw7.jpg'] },
+      { id: 'atracciones', icon: 'ferris-wheel', title: 'Atracciones', titleEn: 'Attractions', desc: 'Entradas a parques y atracciones turísticas', descEn: 'Tickets to parks and tourist attractions', color: 'from-yellow-500 to-orange-600', image: 'https://imgur.com/aSMhxas.jpg', gallery: ['https://imgur.com/fe5iBKp.jpg', 'https://imgur.com/qaaLuF9.jpg'] },
+      { id: 'seguros', icon: 'shield-check', title: 'Seguros de Viaje', titleEn: 'Travel Insurance', desc: 'Protección completa para tu tranquilidad', descEn: 'Full protection for your peace of mind', color: 'from-emerald-500 to-green-600', image: 'https://imgur.com/dZuqCsN.jpg', gallery: ['https://imgur.com/PFzopEi.jpg', 'https://imgur.com/J6xdHko.jpg'] },
+      { id: 'promociones', icon: 'percent', title: 'Promociones', titleEn: 'Promotions', desc: 'Ofertas exclusivas y descuentos especiales', descEn: 'Exclusive offers and special discounts', color: 'from-rose-500 to-purple-600', image: 'https://imgur.com/PEGA_PORTADA_PROMOCIONES', gallery: ['https://imgur.com/PEGA_GALERIA1_PROMOCIONES', 'https://imgur.com/PEGA_GALERIA2_PROMOCIONES'] }
     ];
 
     const promotions = [
@@ -431,13 +431,14 @@
             <div class="bg-white/5 rounded-2xl p-8 border border-white/10">
               <h2 class="font-outfit font-bold text-2xl mb-6">${currentLang === 'es' ? 'Galería' : 'Gallery'}</h2>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="h-40 rounded-xl bg-gradient-to-br ${s.color} flex items-center justify-center">
-                  <i data-lucide="${s.icon}" class="w-16 h-16 text-white/60"></i>
-                </div>
-                <div class="h-40 rounded-xl bg-gradient-to-br ${s.color} opacity-70 flex items-center justify-center">
-                  <i data-lucide="sparkles" class="w-16 h-16 text-white/60"></i>
-                </div>
+                <img src="${s.image}" alt="${title}" class="h-40 rounded-xl object-cover" onerror="this.style.background='#1a1a3e'; this.alt='Imagen no disponible';">
+                ${s.gallery && s.gallery[0] ? `<img src="${s.gallery[0]}" alt="${title} galería" class="h-40 rounded-xl object-cover" onerror="this.style.background='#1a1a3e'; this.alt='Imagen no disponible';">` : `<div class="h-40 rounded-xl bg-gradient-to-br ${s.color} flex items-center justify-center"><i data-lucide="sparkles" class="w-16 h-16 text-white/60"></i></div>`}
               </div>
+              ${s.gallery && s.gallery[1] ? `
+              <div class="mt-4 grid grid-cols-1 gap-4">
+                <img src="${s.gallery[1]}" alt="${title} galería 2" class="h-40 rounded-xl object-cover" onerror="this.style.background='#1a1a3e'; this.alt='Imagen no disponible';">
+              </div>
+              ` : ''}
             </div>
 
             <!-- CTA -->
@@ -620,5 +621,5 @@
       }
     });
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f7bd88344929426',t:'MTc3ODExMDk5Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f7c08239184aece',t:'MTc3ODExMjk0My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
