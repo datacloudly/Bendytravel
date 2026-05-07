@@ -239,16 +239,30 @@
        ============================================ -->
   <script>
     // Services data
-    const services = [
-      { id: 'boleteria', icon: 'ticket', title: 'Boletería', titleEn: 'Flights', desc: 'Vuelos nacionales e internacionales al mejor precio', descEn: 'Domestic and international flights at the best price', color: 'from-blue-500 to-indigo-600', image: 'https://imgur.com/SknXZcU', gallery: ['https://imgur.com/FcVRgvA.jpg', 'https://imgur.com/5Njq4Wr.jpg'] },
-      { id: 'hoteles', icon: 'building', title: 'Hoteles', titleEn: 'Hotels', desc: 'Alojamientos de lujo y económicos en todo el mundo', descEn: 'Luxury and budget accommodations worldwide', color: 'from-purple-500 to-pink-600', image: 'https://imgur.com/PEGA_PORTADA_HOTELES', gallery: ['https://imgur.com/PEGA_GALERIA1_HOTELES', 'https://imgur.com/PEGA_GALERIA2_HOTELES'] },
-      { id: 'cruceros', icon: 'ship', title: 'Cruceros', titleEn: 'Cruises', desc: 'Navega por los destinos más exclusivos', descEn: 'Sail to the most exclusive destinations', color: 'from-cyan-500 to-blue-600', image: 'https://imgur.com/ZZsO0LQ.jpg', gallery: ['https://imgur.com/jdlMF5M.jpg', 'https://imgur.com/oVtd20z.jpg'] },
-      { id: 'paquetes', icon: 'package', title: 'Paquetes', titleEn: 'Packages', desc: 'Todo incluido para viajes sin preocupaciones', descEn: 'All-inclusive for worry-free travel', color: 'from-green-500 to-teal-600', image: 'https://imgur.com/PEGA_PORTADA_PAQUETES', gallery: ['https://imgur.com/PEGA_GALERIA1_PAQUETES', 'https://imgur.com/PEGA_GALERIA2_PAQUETES'] },
-      { id: 'tours', icon: 'map', title: 'Tours', titleEn: 'Tours', desc: 'Excursiones guiadas a destinos increíbles', descEn: 'Guided excursions to incredible destinations', color: 'from-orange-500 to-red-600', image: 'https://imgur.com/wWmTPO2.jpg', gallery: ['https://imgur.com/CewqTpR.jpg', 'https://imgur.com/sLztBw7.jpg'] },
-      { id: 'atracciones', icon: 'ferris-wheel', title: 'Atracciones', titleEn: 'Attractions', desc: 'Entradas a parques y atracciones turísticas', descEn: 'Tickets to parks and tourist attractions', color: 'from-yellow-500 to-orange-600', image: 'https://imgur.com/aSMhxas.jpg', gallery: ['https://imgur.com/fe5iBKp.jpg', 'https://imgur.com/qaaLuF9.jpg'] },
-      { id: 'seguros', icon: 'shield-check', title: 'Seguros de Viaje', titleEn: 'Travel Insurance', desc: 'Protección completa para tu tranquilidad', descEn: 'Full protection for your peace of mind', color: 'from-emerald-500 to-green-600', image: 'https://imgur.com/dZuqCsN.jpg', gallery: ['https://imgur.com/PFzopEi.jpg', 'https://imgur.com/J6xdHko.jpg'] },
-      { id: 'promociones', icon: 'percent', title: 'Promociones', titleEn: 'Promotions', desc: 'Ofertas exclusivas y descuentos especiales', descEn: 'Exclusive offers and special discounts', color: 'from-rose-500 to-purple-600', image: 'https://imgur.com/PEGA_PORTADA_PROMOCIONES', gallery: ['https://imgur.com/PEGA_GALERIA1_PROMOCIONES', 'https://imgur.com/PEGA_GALERIA2_PROMOCIONES'] }
-    ];
+const services = [
+  { 
+    id: 'boleteria', 
+    icon: 'ticket', 
+    title: 'Boletería', 
+    titleEn: 'Flights', 
+    desc: 'Vuelos nacionales e internacionales al mejor precio', 
+    descEn: 'Domestic and international flights at the best price', 
+    color: 'from-blue-500 to-indigo-600', 
+    image: 'https://imgur.com', // Portada corregida
+    gallery: [
+      'https://i.imgur.com/FcVRgvA.jpg', // Foto galería 1 corregida
+      'https://i.imgur.com/5Njq4Wr.jpg'  // Foto galería 2 corregida
+    ] 
+  },
+  { id: 'hoteles', icon: 'building', title: 'Hoteles', titleEn: 'Hotels', desc: 'Alojamientos de lujo y económicos en todo el mundo', descEn: 'Luxury and budget accommodations worldwide', color: 'from-purple-500 to-pink-600', image: 'https://imgur.com/PEGA_PORTADA_HOTELES', gallery: ['https://imgur.com/PEGA_GALERIA1_HOTELES', 'https://imgur.com/PEGA_GALERIA2_HOTELES'] },
+  { id: 'cruceros', icon: 'ship', title: 'Cruceros', titleEn: 'Cruises', desc: 'Navega por los destinos más exclusivos', descEn: 'Sail to the most exclusive destinations', color: 'from-cyan-500 to-blue-600', image: 'https://imgur.com/ZZsO0LQ.jpg', gallery: ['https://imgur.com/jdlMF5M.jpg', 'https://imgur.com/oVtd20z.jpg'] },
+  { id: 'paquetes', icon: 'package', title: 'Paquetes', titleEn: 'Packages', desc: 'Todo incluido para viajes sin preocupaciones', descEn: 'All-inclusive for worry-free travel', color: 'from-green-500 to-teal-600', image: 'https://imgur.com/PEGA_PORTADA_PAQUETES', gallery: ['https://imgur.com/PEGA_GALERIA1_PAQUETES', 'https://imgur.com/PEGA_GALERIA2_PAQUETES'] },
+  { id: 'tours', icon: 'map', title: 'Tours', titleEn: 'Tours', desc: 'Excursiones guiadas a destinos increíbles', descEn: 'Guided excursions to incredible destinations', color: 'from-orange-500 to-red-600', image: 'https://imgur.com/wWmTPO2.jpg', gallery: ['https://imgur.com/CewqTpR.jpg', 'https://imgur.com/sLztBw7.jpg'] },
+  { id: 'atracciones', icon: 'ferris-wheel', title: 'Atracciones', titleEn: 'Attractions', desc: 'Entradas a parques y atracciones turísticas', descEn: 'Tickets to parks and tourist attractions', color: 'from-yellow-500 to-orange-600', image: 'https://imgur.com/aSMhxas.jpg', gallery: ['https://imgur.com/fe5iBKp.jpg', 'https://imgur.com/qaaLuF9.jpg'] },
+  { id: 'seguros', icon: 'shield-check', title: 'Seguros de Viaje', titleEn: 'Travel Insurance', desc: 'Protección completa para tu tranquilidad', descEn: 'Full protection for your peace of mind', color: 'from-emerald-500 to-green-600', image: 'https://imgur.com/dZuqCsN.jpg', gallery: ['https://imgur.com/PFzopEi.jpg', 'https://imgur.com/J6xdHko.jpg'] },
+  { id: 'promociones', icon: 'percent', title: 'Promociones', titleEn: 'Promotions', desc: 'Ofertas exclusivas y descuentos especiales', descEn: 'Exclusive offers and special discounts', color: 'from-rose-500 to-purple-600', image: 'https://imgur.com/PEGA_PORTADA_PROMOCIONES', gallery: ['https://imgur.com/PEGA_GALERIA1_PROMOCIONES', 'https://imgur.com/PEGA_GALERIA2_PROMOCIONES'] }
+];
+
 
     const promotions = [
       { dest: 'Cancún, México', duration: '5 noches', durationEn: '5 nights', price: 'Desde $599', priceEn: 'From $599', tag: '🔥 Hot Deal' },
