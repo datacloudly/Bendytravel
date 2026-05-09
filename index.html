@@ -319,8 +319,17 @@
       { id: 'hoteles', icon: 'building', title: 'Hoteles', titleEn: 'Hotels', desc: 'Alojamientos de lujo y económicos en todo el mundo', descEn: 'Luxury and budget accommodations worldwide', color: 'from-purple-500 to-pink-600', image: 'https://imgur.com/PEGA_PORTADA_HOTELES' },
       { id: 'cruceros', icon: 'ship', title: 'Cruceros', titleEn: 'Cruises', desc: 'Navega por los destinos más exclusivos', descEn: 'Sail to the most exclusive destinations', color: 'from-cyan-500 to-blue-600', image: 'https://imgur.com/ZZsO0LQ.jpg' },
       { id: 'paquetes', icon: 'package', title: 'Paquetes', titleEn: 'Packages', desc: 'Todo incluido para viajes sin preocupaciones', descEn: 'All-inclusive for worry-free travel', color: 'from-green-500 to-teal-600', image: 'https://imgur.com/PEGA_PORTADA_PAQUETES' },
-      { id: 'tours', icon: 'map', title: 'Tours', titleEn: 'Tours', desc: 'Excursiones guiadas a destinos increíbles', descEn: 'Guided excursions to incredible destinations', color: 'from-orange-500 to-red-600', image: 'https://imgur.com/wWmTPO2.jpg' },
-      { id: 'atracciones', icon: 'ferris-wheel', title: 'Atracciones', titleEn: 'Attractions', desc: 'Entradas a parques y atracciones turísticas', descEn: 'Tickets to parks and tourist attractions', color: 'from-yellow-500 to-orange-600', image: 'https://imgur.com/fe5iBKp.jpg' },
+      
+     
+     { id: 'tours', icon: 'map', title: 'Tours', titleEn: 'Tours', desc: 'Excursiones guiadas a destinos increíbles', descEn: 'Guided excursions to incredible destinations', color: 'from-orange-500 to-red-600', image: 'https://imgur.com/wWmTPO2.jpg' },
+      
+
+
+     
+
+     
+     
+     { id: 'atracciones', icon: 'ferris-wheel', title: 'Atracciones', titleEn: 'Attractions', desc: 'Entradas a parques y atracciones turísticas', descEn: 'Tickets to parks and tourist attractions', color: 'from-yellow-500 to-orange-600', image: 'https://imgur.com/fe5iBKp.jpg' },
       { id: 'seguros', icon: 'shield-check', title: 'Seguros de Viaje', titleEn: 'Travel Insurance', desc: 'Protección completa para tu tranquilidad', descEn: 'Full protection for your peace of mind', color: 'from-emerald-500 to-green-600', image: 'https://imgur.com/dZuqCsN.jpg' },
       { id: 'promociones', icon: 'percent', title: 'Promociones', titleEn: 'Promotions', desc: 'Ofertas exclusivas y descuentos especiales', descEn: 'Exclusive offers and special discounts', color: 'from-rose-500 to-purple-600', image: 'https://imgur.com/PEGA_PORTADA_PROMOCIONES' }
     ];
@@ -334,101 +343,6 @@ function renderSubpage(id) {
   const desc = currentLang === 'es' ? s.desc : s.descEn;
   const backText = currentLang === 'es' ? '← Volver al inicio' : '← Back to home';
   
-  // Mantenemos tus features originales para las otras tarjetas
-  const features = {
-    boleteria: { es: ['Vuelos nacionales e internacionales', 'Mejores precios garantizados', 'Flexible booking', 'Soporte 24/7'], en: ['Domestic and international flights', 'Best prices guaranteed', 'Flexible booking', '24/7 support'] },
-    hoteles: { es: ['Hoteles de lujo y económicos', 'Reservas instantáneas', 'Cancelación gratuita', 'Garant. de mejor precio'], en: ['Luxury and budget hotels', 'Instant bookings', 'Free cancellation', 'Best price guarantee'] },
-    cruceros: { es: ['Cruceros a destinos exclusivos', 'All-inclusive options', 'Cabinas premium', 'Itinerarios personalizados'], en: ['Cruises to exclusive destinations', 'All-inclusive options', 'Premium cabins', 'Custom itineraries'] },
-    paquetes: { es: ['Paquetes todo incluido', 'Destinos variados', 'Precios accesibles', 'Facilidades de pago'], en: ['All-inclusive packages', 'Varied destinations', 'Affordable prices', 'Payment plans'] },
-    atracciones: { es: ['Entradas a parques temáticos', 'Museos y galerías', 'Entretenimiento familiar', 'Descuentos especiales'], en: ['Theme park tickets', 'Museums and galleries', 'Family entertainment', 'Special discounts'] },
-    seguros: { es: ['Cobertura completa de viaje', 'Asistencia médica', 'Cancelación de viaje', 'Coberturas adicionales'], en: ['Complete travel coverage', 'Medical assistance', 'Trip cancellation', 'Additional coverage'] },
-    promociones: { es: ['Ofertas exclusivas diarias', 'Descuentos hasta 40%', 'Early bird specials', 'Combo packages'], en: ['Daily exclusive offers', 'Discounts up to 40%', 'Early bird specials', 'Combo packages'] }
-  };
-
-  let mainContent = '';
-
-  // SI ES TOURS, USAMOS EL DISEÑO ESPECIAL DE EUROPA
-  if (id === 'tours') {
-    mainContent = `
-      <div class="space-y-8">
-        <div class="bg-gradient-to-br from-blue-600/20 to-purple-600/20 rounded-3xl p-8 border border-white/10 shadow-xl">
-          <h2 class="text-3xl font-outfit font-900 mb-2 text-white">¡Europa Mágica y Exclusiva!</h2>
-          <p class="text-emerald-400 font-bold text-xl mb-4">12 Días de Sueños Cumplidos</p>
-          <div class="flex items-center gap-2 text-gray-300 mb-6">
-            <i data-lucide="calendar" class="w-5 h-5 text-blue-400"></i>
-            <span>Disponibilidad: <b>Septiembre u Octubre</b></span>
-          </div>
-          
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-            <div class="space-y-4">
-              <h3 class="text-blue-400 font-bold border-b border-white/10 pb-2">Itinerario Destacado</h3>
-              <ul class="space-y-2 text-gray-300 text-sm">
-                <li>• <b>Madrid:</b> Tour espectaculares.</li>
-                <li>• <b>Roma:</b> Tesoros y cultura exclusiva.</li>
-                <li>• <b>Venecia:</b> Góndola con serenata y Murano.</li>
-                <li>• <b>Toscana:</b> Joyas con almuerzo incluido.</li>
-                <li>• <b>Nápoles:</b> Costa Amalfitana.</li>
-              </ul>
-            </div>
-            <div class="space-y-4">
-              <h3 class="text-purple-400 font-bold border-b border-white/10 pb-2">Experiencia París</h3>
-              <ul class="space-y-2 text-gray-300 text-sm">
-                <li>• <b>Disneyland® París:</b> Entrada incluida.</li>
-                <li>• <b>Torre Eiffel:</b> Recorrido exclusivo.</li>
-                <li>• <b>Logística:</b> Vuelos internos y Trenes Business.</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="mt-8 p-6 bg-white/5 rounded-2xl border border-dashed border-white/20">
-             <p class="text-gray-400 text-xs uppercase tracking-widest">Inversión inicial</p>
-             <p class="text-4xl font-black text-white">USD 1,399 <span class="text-sm font-light text-gray-400">por persona</span></p>
-          </div>
-        </div>
-        <!-- Aquí pegaremos tu imagen de Imgur cuando me des el link -->
-        <div id="custom-tour-image"></div> 
-      </div>
-    `;
-  } else {
-    // DISEÑO ESTÁNDAR PARA LAS DEMÁS TARJETAS
-    const featureList = features[id] ? (currentLang === 'es' ? features[id].es : features[id].en) : [];
-    mainContent = `
-      <div class="space-y-8">
-        <div class="bg-white/5 rounded-2xl p-8 border border-white/10">
-          <h2 class="font-outfit font-bold text-2xl mb-4">${currentLang === 'es' ? 'Sobre este servicio' : 'About this service'}</h2>
-          <p class="text-gray-300 leading-relaxed">En Bendy Viajes te ofrecemos el mejor servicio de ${title.toLowerCase()}...</p>
-        </div>
-        <div class="bg-white/5 rounded-2xl p-8 border border-white/10">
-          <h2 class="font-outfit font-bold text-2xl mb-6">${currentLang === 'es' ? 'Lo que te ofrecemos' : 'What we offer'}</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            ${featureList.map(f => `<div class="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/5"><i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-400 flex-shrink-0"></i><span class="text-gray-200">${f}</span></div>`).join('')}
-          </div>
-        </div>
-      </div>
-    `;
-  }
-
-  page.innerHTML = `
-    <div class="w-full h-full flex flex-col">
-      <div class="subpage-hero flex items-center justify-center text-center px-4 py-16 mt-16">
-        <div>
-          <i data-lucide="${s.icon}" class="w-16 h-16 text-white/80 mx-auto mb-4"></i>
-          <h1 class="font-outfit font-900 text-4xl sm:text-5xl mb-2">${title}</h1>
-          <p class="text-white/70 text-lg">${desc}</p>
-        </div>
-      </div>
-      <div class="max-w-4xl mx-auto w-full px-4 py-12 flex-1">
-        ${mainContent}
-        <div class="flex flex-col sm:flex-row gap-4 mt-12 pb-10">
-          <button onclick="showPage('home')" class="px-6 py-3 rounded-xl border border-white/20 hover:bg-white/5 transition-colors font-medium">${backText}</button>
-          <a href="https://wa.me{encodeURIComponent(id === 'tours' ? 'Europa Mágica' : title)}" target="_blank" class="btn-glow gradient-bg px-6 py-3 rounded-xl font-medium text-center">${currentLang === 'es' ? 'Contactar por WhatsApp' : 'Contact via WhatsApp'}</a>
-        </div>
-      </div>
-    </div>
-  `;
-  lucide.createIcons();
-}
-
 
 
 
@@ -592,10 +506,63 @@ function renderSubpage(id) {
           es: ['Paquetes todo incluido', 'Destinos variados', 'Precios accesibles', 'Facilidades de pago'],
           en: ['All-inclusive packages', 'Varied destinations', 'Affordable prices', 'Payment plans']
         },
+
+       
         tours: {
           es: ['Tours guiados profesionales', 'Grupos reducidos', 'Experiencias únicas', 'Incluye transporte'],
           en: ['Professional guided tours', 'Small groups', 'Unique experiences', 'Transport included']
         },
+
+     
+
+tours: {
+  es: {
+    title: '¡Europa Mágica y Exclusiva!',
+    subtitle: '12 Días de Sueños Cumplidos',
+    availability: 'Disponibilidad: Septiembre u Octubre',
+    features: [
+      'Madrid: Tour por los lugares más espectaculares',
+      'Roma: Tesoros emblemáticos y actividad cultural exclusiva',
+      'Vuelos internos incluidos',
+      'Traslados en Trenes de Alta Velocidad (Clase Business)',
+      'Acompañamiento de guías turísticos expertos',
+      '¡Entrada incluida a Disneyland® París! (Fantasía con Mickey)',
+      'Recorrido por lugares emblemáticos de París',
+      'Recorrido exclusivo a los pies de la Torre Eiffel',
+      'Toscana: Joyas de la Toscana con almuerzo incluido',
+      'Venecia: Paseo compartido en góndola con serenata',
+      'Crucero exclusivo a islas de Murano y Burano',
+      'Nápoles: Cositas Amalfitanas y mucho más'
+    ],
+    price: 'Pago Inicial: Desde USD 1,399 (a pagar ahora)'
+  },
+  en: {
+    title: 'Magical and Exclusive Europe!',
+    subtitle: '12 Days of Fulfilled Dreams',
+    availability: 'Availability: September or October',
+    features: [
+      'Madrid: Tour of the most spectacular places',
+      'Rome: Emblematic treasures and exclusive cultural activity',
+      'Domestic flights included',
+      'High-Speed Train transfers (Business Class)',
+      'Expert tour guide accompaniment',
+      'Disneyland® Paris entrance included! (Fantasy with Mickey)',
+      'Tour of emblematic places in Paris',
+      'Exclusive tour at the foot of the Eiffel Tower',
+      'Tuscany: Jewels of Tuscany with lunch included',
+      'Venice: Shared gondola ride with serenade',
+      'Exclusive cruise to Murano and Burano islands',
+      'Naples: Amalfi experiences and much more'
+    ],
+    price: 'Initial Payment: From USD 1,399 (payable now)'
+  }
+},
+
+
+
+
+
+       
         atracciones: {
           es: ['Entradas a parques temáticos', 'Museos y galerías', 'Entretenimiento familiar', 'Descuentos especiales'],
           en: ['Theme park tickets', 'Museums and galleries', 'Family entertainment', 'Special discounts']
