@@ -115,8 +115,8 @@
      <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 py-32">
       <div class="float-anim mb-6"><img src="https://imgur.com/JCIBLfO.png" alt="Bendy Viajes" class="w-20 h-20 mx-auto object-contain">
       </div>
-      <h1 id="heroTitle" class="font-outfit font-900 text-4xl sm:text-5xl md:text-7xl leading-tight mb-4 max-w-4xl" data-i18n="hero_title">Descubre el mundo con <span style="color: #FFFFFF; font-weight: 900; letter-spacing: 0.05em; text-shadow: 0 0 10px #FFFFFF, 0 0 20px #FFFFFF, 0 0 30px #FFFFFF, 0 0 40px #64B5F6, 0 0 50px #64B5F6, 0 0 60px #42A5F5, 0 0 70px #2196F3; filter: drop-shadow(0 0 10px rgba(255,255,255,1)) drop-shadow(0 0 20px rgba(255,255,255,1)) drop-shadow(0 0 30px rgba(100,181,246,1)) drop-shadow(0 0 40px rgba(66,165,245,1)) drop-shadow(0 0 50px rgba(33,150,243,0.8));">Bendy Viajes</span></h1>
-      <p id="heroSubtitle" class="text-lg sm:text-xl mb-8 max-w-2xl font-light" style="color: #FFFFFF; font-weight: 600; letter-spacing: 0.02em; text-shadow: 0 0 10px #FFFFFF, 0 0 20px #FFFFFF, 0 0 30px #64B5F6, 0 0 40px #42A5F5; filter: drop-shadow(0 0 10px rgba(255,255,255,0.8)) drop-shadow(0 0 20px rgba(100,181,246,0.6));" data-i18n="hero_subtitle">Se ajusta a lo que buscas</p><button onclick="scrollToSection('services')" class="btn-glow gradient-bg px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg hover:shadow-royal/30 transition-all duration-300"> <span data-i18n="explore_btn">Explorar destinos</span> → </button>
+      <h1 id="heroTitle" class="font-outfit font-900 text-4xl sm:text-5xl md:text-7xl leading-tight mb-4 max-w-4xl text-white">Descubre el mundo con <span id="heroBrandName" style="color: #FFFFFF; font-weight: 900; letter-spacing: 0.05em; text-shadow: 0 0 8px rgba(255,255,255,0.8), 0 0 16px rgba(100,181,246,0.6), 0 0 24px rgba(66,165,245,0.4); filter: drop-shadow(0 0 6px rgba(255,255,255,0.6)) drop-shadow(0 0 12px rgba(100,181,246,0.4));">Bendy Viajes</span></h1>
+      <p id="heroSubtitle" class="text-lg sm:text-xl mb-8 max-w-2xl font-light text-white">Se ajusta a lo que buscas</p><button onclick="scrollToSection('services')" class="btn-glow gradient-bg px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg hover:shadow-royal/30 transition-all duration-300"> <span data-i18n="explore_btn">Explorar destinos</span> → </button>
      </div>
     </section><!-- FIN SECCIÓN: HERO --> <!-- SECCIÓN: SERVICIOS (Grilla de 8 servicios) -->
     <section id="services" class="py-20 px-4 gradient-bg-dark">
@@ -321,8 +321,9 @@
     // Translations
     const translations = {
       es: {
-        hero_title: 'Descubre el mundo con Bendy Viajes',
-        hero_subtitle: 'Experiencias únicas, destinos inolvidables',
+        hero_title: 'Descubre el mundo con',
+        hero_brand: 'Bendy Viajes',
+        hero_subtitle: 'Se ajusta a lo que buscas',
         explore_btn: 'Explorar destinos',
         menu_services: 'Nuestros Servicios',
         menu_promos: 'Promociones Especiales',
@@ -356,8 +357,9 @@
         venezuela_text: 'Nos enorgullece servir a la comunidad venezolana en el mundo. Desde nuestras raíces en Venezuela, llevamos el espíritu emprendedor a cada viaje que planificamos para nuestros clientes.'
       },
       en: {
-        hero_title: 'Discover the world with Bendy Viajes',
-        hero_subtitle: 'Unique experiences, unforgettable destinations',
+        hero_title: 'Discover the world with',
+        hero_brand: 'Bendy Viajes',
+        hero_subtitle: 'Fits what you\'re looking for',
         explore_btn: 'Explore destinations',
         menu_services: 'Our Services',
         menu_promos: 'Special Promotions',
@@ -767,6 +769,9 @@
       const mobileLangBtn = document.getElementById('mobileLangBtn');
       if (mobileLangBtn) mobileLangBtn.textContent = currentLang === 'es' ? 'EN' : 'ES';
       applyTranslations();
+      // Update hero title and subtitle with translations
+      document.getElementById('heroTitle').innerHTML = `${translations[currentLang].hero_title} <span id="heroBrandName" style="color: #FFFFFF; font-weight: 900; letter-spacing: 0.05em; text-shadow: 0 0 8px rgba(255,255,255,0.8), 0 0 16px rgba(100,181,246,0.6), 0 0 24px rgba(66,165,245,0.4); filter: drop-shadow(0 0 6px rgba(255,255,255,0.6)) drop-shadow(0 0 12px rgba(100,181,246,0.4));">${translations[currentLang].hero_brand}</span>`;
+      document.getElementById('heroSubtitle').textContent = translations[currentLang].hero_subtitle;
       renderServices();
       renderPromos();
       // Update about text with translations
@@ -858,8 +863,9 @@
 
     // Element SDK
     const defaultConfig = {
-      hero_title: 'Descubre el mundo con Bendy Viajes',
-      hero_subtitle: 'Experiencias únicas, destinos inolvidables',
+      hero_title: 'Descubre el mundo con',
+      hero_brand: 'Bendy Viajes',
+      hero_subtitle: 'Se ajusta a lo que buscas',
       about_text: 'En Bendy Viajes nos especializamos en crear experiencias inolvidables alrededor del mundo, ofreciendo atención personalizada, confianza y los mejores destinos para nuestros clientes.',
       contact_address: 'Aeropuerto José Antonio Anzoátegui de Barcelona piso 1',
       background_color: '#0a0a1a',
@@ -875,7 +881,7 @@
       defaultConfig,
       onConfigChange: async (config) => {
         const c = { ...defaultConfig, ...config };
-        document.getElementById('heroTitle').innerHTML = `${c.hero_title.replace('Bendy Viajes', '<span class="gradient-text">Bendy Viajes</span>')}`;
+        document.getElementById('heroTitle').innerHTML = `${c.hero_title} <span id="heroBrandName" style="color: #FFFFFF; font-weight: 900; letter-spacing: 0.05em; text-shadow: 0 0 8px rgba(255,255,255,0.8), 0 0 16px rgba(100,181,246,0.6), 0 0 24px rgba(66,165,245,0.4); filter: drop-shadow(0 0 6px rgba(255,255,255,0.6)) drop-shadow(0 0 12px rgba(100,181,246,0.4));">${c.hero_brand}</span>`;
         document.getElementById('heroSubtitle').textContent = c.hero_subtitle;
         document.getElementById('aboutText').textContent = c.about_text || (currentLang === 'es' ? defaultConfig.about_text : translations.en.about_text);
         document.getElementById('addressText').textContent = c.contact_address;
@@ -903,6 +909,7 @@
         const c = { ...defaultConfig, ...config };
         return new Map([
           ['hero_title', c.hero_title],
+          ['hero_brand', c.hero_brand],
           ['hero_subtitle', c.hero_subtitle],
           ['about_text', c.about_text],
           ['contact_address', c.contact_address]
@@ -910,5 +917,5 @@
       }
     });
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9fa68bc084ca492b',t:'MTc3ODU1ODczNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9fa69841c3063bf3',t:'MTc3ODU1OTI0OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
