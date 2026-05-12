@@ -85,37 +85,39 @@
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
  <body class="h-full bg-dark text-white overflow-auto">
-  <div id="app" class="w-full min-h-full">
-   <!-- ============================================
+  <div id="app" class="w-full min-h-full"><!-- ============================================
         SECCIÓN: NAVEGACIÓN (NAVBAR)
         - Logo y menú desktop
         - Menú móvil
         - Botón de idioma
         ============================================ -->
    <nav id="navbar" class="fixed top-0 left-0 w-full z-50 nav-blur border-b border-white/5 transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16"><a href="#" onclick="showPage('home')" class="flex items-center gap-2"> <img src="https://imgur.com/JCIBLfO.png" alt="Bendy Viajes" class="w-10 h-10 object-contain"><span class="font-outfit font-bold text-xl">Bendy<span class="gradient-text">Viajes</span></span> </a>
-     <div class="hidden md:flex items-center gap-6 text-sm font-medium"><a href="#" onclick="showPage('home');scrollToSection('services')" class="hover:text-royal transition-colors" data-i18n="menu_services">Servicios</a> <a href="#" onclick="showPage('home');scrollToSection('promos')" class="hover:text-royal transition-colors" data-i18n="menu_promos">Promociones</a> <a href="#" onclick="showPage('home');scrollToSection('gallery')" class="hover:text-royal transition-colors" data-i18n="menu_gallery">Galería</a> <a href="#" onclick="showPage('home');scrollToSection('about')" class="hover:text-royal transition-colors" data-i18n="menu_about">Nosotros</a> <a href="#" onclick="showPage('home');scrollToSection('venezuela')" class="hover:text-royal transition-colors" data-i18n="menu_venezuela">Venezuela</a> <a href="#" onclick="showPage('home');scrollToSection('contact')" class="hover:text-royal transition-colors" data-i18n="menu_contact">Contacto</a> <button onclick="toggleLang()" id="langBtn" class="px-3 py-1 rounded-full border border-royal/50 text-xs hover:bg-royal/20 transition-colors">EN</button>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+     <a href="#" onclick="showPage('home')" class="flex items-center gap-2"> <img src="https://imgur.com/JCIBLfO.png" alt="Bendy Viajes" class="w-10 h-10 object-contain"><span class="font-outfit font-bold text-xl">Bendy<span class="gradient-text">Viajes</span></span> </a>
+     <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+      <a href="#" onclick="showPage('home');scrollToSection('services')" class="hover:text-royal transition-colors" data-i18n="menu_services">Servicios</a> <a href="#" onclick="showPage('home');scrollToSection('promos')" class="hover:text-royal transition-colors" data-i18n="menu_promos">Promociones</a> <a href="#" onclick="showPage('home');scrollToSection('gallery')" class="hover:text-royal transition-colors" data-i18n="menu_gallery">Galería</a> <a href="#" onclick="showPage('home');scrollToSection('about')" class="hover:text-royal transition-colors" data-i18n="menu_about">Nosotros</a> <a href="#" onclick="showPage('home');scrollToSection('venezuela')" class="hover:text-royal transition-colors" data-i18n="menu_venezuela">Venezuela</a> <a href="#" onclick="showPage('home');scrollToSection('contact')" class="hover:text-royal transition-colors" data-i18n="menu_contact">Contacto</a> <button onclick="toggleLang()" id="langBtn" class="px-3 py-1 rounded-full border border-royal/50 text-xs hover:bg-royal/20 transition-colors">EN</button>
      </div><button onclick="toggleMobileMenu()" class="md:hidden"><i data-lucide="menu" class="w-6 h-6"></i></button>
     </div><!-- MENÚ MÓVIL -->
-    <div id="mobileMenu" class="hidden md:hidden bg-dark/95 border-t border-white/5 px-4 py-4 space-y-3"><a href="#" onclick="showPage('home');scrollToSection('services');toggleMobileMenu()" class="block py-2" data-i18n="menu_services">Servicios</a> <a href="#" onclick="showPage('home');scrollToSection('promos');toggleMobileMenu()" class="block py-2" data-i18n="menu_promos">Promociones</a> <a href="#" onclick="showPage('home');scrollToSection('gallery');toggleMobileMenu()" class="block py-2" data-i18n="menu_gallery">Galería</a> <a href="#" onclick="showPage('home');scrollToSection('about');toggleMobileMenu()" class="block py-2" data-i18n="menu_about">Nosotros</a> <a href="#" onclick="showPage('home');scrollToSection('venezuela');toggleMobileMenu()" class="block py-2" data-i18n="menu_venezuela">Venezuela</a> <a href="#" onclick="showPage('home');scrollToSection('contact');toggleMobileMenu()" class="block py-2" data-i18n="menu_contact">Contacto</a> <button onclick="toggleLang()" id="mobileLangBtn" class="px-3 py-1 rounded-full border border-royal/50 text-xs hover:bg-royal/20 transition-colors">EN</button>
+    <div id="mobileMenu" class="hidden md:hidden bg-dark/95 border-t border-white/5 px-4 py-4 space-y-3">
+     <a href="#" onclick="showPage('home');scrollToSection('services');toggleMobileMenu()" class="block py-2" data-i18n="menu_services">Servicios</a> <a href="#" onclick="showPage('home');scrollToSection('promos');toggleMobileMenu()" class="block py-2" data-i18n="menu_promos">Promociones</a> <a href="#" onclick="showPage('home');scrollToSection('gallery');toggleMobileMenu()" class="block py-2" data-i18n="menu_gallery">Galería</a> <a href="#" onclick="showPage('home');scrollToSection('about');toggleMobileMenu()" class="block py-2" data-i18n="menu_about">Nosotros</a> <a href="#" onclick="showPage('home');scrollToSection('venezuela');toggleMobileMenu()" class="block py-2" data-i18n="menu_venezuela">Venezuela</a> <a href="#" onclick="showPage('home');scrollToSection('contact');toggleMobileMenu()" class="block py-2" data-i18n="menu_contact">Contacto</a> <button onclick="toggleLang()" id="mobileLangBtn" class="px-3 py-1 rounded-full border border-royal/50 text-xs hover:bg-royal/20 transition-colors">EN</button>
     </div>
    </nav><!-- ============================================
         SECCIÓN: PÁGINA DE INICIO (HOME PAGE)
         Contiene: Hero, Servicios, Promociones, Nosotros, Venezuela, Contacto
         ============================================ -->
-   <div id="page-home" class="page-section active">
-    <!-- SECCIÓN: HERO (Banner Principal) -->
+   <div id="page-home" class="page-section active"><!-- SECCIÓN: HERO (Banner Principal) -->
     <section class="relative w-full" style="height: 100%;">
-     <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover"><source src="https://github.com/datacloudly/Bendytravel/raw/main/inicio.mp4" type="video/mp4">
+     <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
+      <source src="https://github.com/datacloudly/Bendytravel/raw/main/inicio.mp4" type="video/mp4">
      </video>
      <div class="hero-overlay absolute inset-0"></div><!-- Fallback gradient if video fails -->
      <div class="absolute inset-0 gradient-bg-dark -z-10"></div>
      <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 py-32">
-      <div class="float-anim mb-6">
-       <img src="https://imgur.com/JCIBLfO.png" alt="Bendy Viajes" class="w-20 h-20 mx-auto object-contain">
+      <div class="float-anim mb-6"><img src="https://imgur.com/JCIBLfO.png" alt="Bendy Viajes" class="w-20 h-20 mx-auto object-contain">
       </div>
-      <h1 id="heroTitle" class="font-outfit font-900 text-4xl sm:text-5xl md:text-7xl leading-tight mb-4 max-w-4xl" data-i18n="hero_title">Descubre el mundo con <span style="color: #FFFFFF; text-shadow: 0 0 30px rgba(255,255,255,1), 0 0 60px rgba(255,255,255,0.8), 0 0 90px rgba(255,255,255,0.6); font-weight: 900; letter-spacing: 0.05em;">Bendy Viajes</span></h1>
+      <h1 id="heroTitle" class="font-outfit font-900 text-4xl sm:text-5xl md:text-7xl leading-tight mb-4 max-w-4xl" data-i18n="hero_title">Descubre el mundo con <span style="background: linear-gradient(135deg, #FFFFFF 0%, #E0E7FF 50%, #FFFFFF 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-shadow: 0 0 30px rgba(255,255,255,0.5), 0 0 60px rgba(224,231,255,0.4); font-weight: 900; letter-spacing: 0.05em; filter: drop-shadow(0 0 20px rgba(255,255,255,0.6)) drop-shadow(0 0 40px rgba(224,231,255,0.3));">Bendy Viajes</span></h1>
       <p id="heroSubtitle" class="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl font-light" data-i18n="hero_subtitle">Experiencias únicas, destinos inolvidables</p><button onclick="scrollToSection('services')" class="btn-glow gradient-bg px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg hover:shadow-royal/30 transition-all duration-300"> <span data-i18n="explore_btn">Explorar destinos</span> → </button>
+       <p id="heroSubtitle" class="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl font-light" data-i18n="hero_subtitle">Sea ajusta a lo que buscas</p><button onclick="scrollToSection('services')" class="btn-glow gradient-bg px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg hover:shadow-royal/30 transition-all duration-300"> <span data-i18n="explore_btn">Explorar destinos</span> → </button>
      </div>
     </section><!-- FIN SECCIÓN: HERO --> <!-- SECCIÓN: SERVICIOS (Grilla de 8 servicios) -->
     <section id="services" class="py-20 px-4 gradient-bg-dark">
@@ -127,110 +129,8 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="servicesGrid">
       </div>
      </div>
-    </section><!-- FIN SECCIÓN: SERVICIOS --> <!-- SECCIÓN: PROMOCIONES (Ofertas especiales) -->
-    <section id="promos" class="py-20 px-4 bg-dark">
-     <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-16 fade-up">
-       <h2 class="font-outfit font-800 text-3xl sm:text-5xl mb-4" data-i18n="promos_title">Promociones Especiales</h2>
-       <p class="text-gray-400 max-w-xl mx-auto" data-i18n="promos_sub">Ofertas exclusivas para viajeros</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="promosGrid"></div>
-     </div>
-    </section><!-- FIN SECCIÓN: PROMOCIONES --> <!-- SECCIÓN: GALERÍA (9 fotos con hover effect) -->
-    <section id="gallery" class="py-20 px-4 bg-dark">
-     <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-16 fade-up">
-       <h2 class="font-outfit font-800 text-3xl sm:text-5xl mb-4" data-i18n="gallery_title">Galería de Viajes</h2>
-       <p class="text-gray-400 max-w-xl mx-auto" data-i18n="gallery_sub">Inspírate con nuestras fotos de destinos increíbles</p>
-      </div>
-      <div class="gallery-grid" id="galleryGrid"></div>
-     </div>
-    </section><!-- FIN SECCIÓN: GALERÍA --> <!-- SECCIÓN: QUIÉNES SOMOS (About Us con video) -->
-    <section id="about" class="py-20 px-4 gradient-bg-dark">
-     <div class="max-w-5xl mx-auto fade-up">
-      <div class="text-center mb-10">
-       <h2 class="font-outfit font-800 text-3xl sm:text-5xl mb-4" data-i18n="about_title">Quiénes Somos</h2>
-      </div>
-      <div class="bg-white/5 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-white/10">
-       <div class="flex flex-col md:flex-row items-center gap-8">
-        <div class="w-24 h-24 rounded-2xl flex items-center justify-center shrink-0"><img src="https://imgur.com/JCIBLfO.png" alt="Bendy Viajes" class="w-full h-full object-contain">
-        </div>
-        <p id="aboutText" class="text-gray-300 text-lg leading-relaxed">En Bendy Viajes nos especializamos en crear experiencias inolvidables alrededor del mundo, ofreciendo atención personalizada, confianza y los mejores destinos para nuestros clientes.</p>
-       </div>
-      </div>
-     </div>
-    </section><!-- FIN SECCIÓN: QUIÉNES SOMOS --> <!-- SECCIÓN: VENEZUELA (Video + Mensaje) -->
-    <section id="venezuela" class="py-20 px-4 gradient-bg-dark">
-     <div class="max-w-5xl mx-auto fade-up">
-      <div class="flex items-center justify-center gap-6 mb-10"><img src="https://imgur.com/UHhJ37M.png" alt="Venezuela Logo" class="w-16 h-16 sm:w-20 sm:h-20 object-contain">
-       <h2 class="font-outfit font-800 text-3xl sm:text-5xl" data-i18n="venezuela_title">Venezuela Sigo Aquí</h2>
-      </div>
-      <div class="relative w-full rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-blue-600 to-purple-600" style="aspect-ratio: 16/9;">
-       <video autoplay muted loop playsinline class="w-full h-full object-cover">
-        <source src="https://github.com/datacloudly/Bendytravel/raw/main/quienessomos.mp4" type="video/mp4">
-       </video>
-      </div>
-      <div class="mt-8 bg-white/5 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-white/10 text-center">
-       <p class="text-gray-300 text-lg leading-relaxed mb-6" data-i18n="venezuela_text">Nos enorgullece servir a la comunidad venezolana en el mundo. Desde nuestras raíces en Venezuela, llevamos el espíritu emprendedor a cada viaje que planificamos para nuestros clientes.</p>
-       <div class="flex justify-center"><img src="https://imgur.com/f2Nxc7L.jpg" alt="Venezuela comunidad" loading="lazy" class="w-full sm:w-2/3 rounded-2xl transition-transform duration-300 hover:scale-110 cursor-pointer" onerror="this.style.background='#1a1a3e'; this.alt='Imagen no disponible';">
-       </div>
-      </div>
-     </div>
-    </section><!-- FIN SECCIÓN: VENEZUELA --> <!-- SECCIÓN: CONTACTO (Formulario + Información) -->
-    <section id="contact" class="py-20 px-4 bg-dark">
-     <div class="max-w-5xl mx-auto fade-up">
-      <div class="text-center mb-12">
-       <h2 class="font-outfit font-800 text-3xl sm:text-5xl mb-4" data-i18n="contact_title">Contáctanos</h2>
-       <p class="text-gray-400" data-i18n="contact_sub">Estamos listos para ayudarte a planificar tu próximo viaje</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-       <!-- FORMULARIO DE CONTACTO -->
-       <form id="contactForm" class="space-y-4" onsubmit="handleFormSubmit(event)">
-        <div><label for="name" class="block text-sm text-gray-400 mb-1" data-i18n="form_name">Nombre completo</label> <input type="text" id="name" name="name" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-royal focus:outline-none transition-colors">
-        </div>
-        <div><label for="email" class="block text-sm text-gray-400 mb-1">Email</label> <input type="email" id="email" name="email" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-royal focus:outline-none transition-colors">
-        </div>
-        <div><label for="company" class="block text-sm text-gray-400 mb-1" data-i18n="form_company">Empresa (opcional)</label> <input type="text" id="company" name="company" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-royal focus:outline-none transition-colors">
-        </div>
-        <div><label for="message" class="block text-sm text-gray-400 mb-1" data-i18n="form_message">Mensaje</label> <textarea id="message" name="message" rows="4" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-royal focus:outline-none transition-colors resize-none"></textarea>
-        </div><button type="submit" id="submitBtn" class="btn-glow gradient-bg w-full py-4 rounded-xl font-semibold text-lg transition-all duration-300"> <span data-i18n="form_send">Enviar mensaje</span> </button>
-        <div id="formMessage" class="hidden p-4 rounded-xl text-center font-semibold"></div>
-       </form><!-- Info -->
-       <div class="space-y-6">
-        <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
-         <div class="flex items-start gap-4"><i data-lucide="map-pin" class="w-5 h-5 text-royal mt-1"></i>
-          <div>
-           <p class="font-semibold mb-1" data-i18n="info_address">Dirección</p>
-           <p id="addressText" class="text-gray-400 text-sm">Aeropuerto José Antonio Anzoátegui de Barcelona piso 1</p>
-          </div>
-         </div>
-        </div>
-        <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
-         <div class="flex items-start gap-4"><i data-lucide="mail" class="w-5 h-5 text-royal mt-1"></i>
-          <div>
-           <p class="font-semibold mb-1">Email</p>
-           <p class="text-gray-400 text-sm">Bendytravel@gmail.com</p>
-          </div>
-         </div>
-        </div>
-        <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
-         <div class="flex items-start gap-4"><i data-lucide="phone" class="w-5 h-5 text-royal mt-1"></i>
-          <div>
-           <p class="font-semibold mb-1" data-i18n="info_phone">Teléfono</p>
-           <p class="text-gray-400 text-sm">+58 412-1847127</p>
-          </div>
-         </div>
-        </div>
-        <div class="flex gap-4 mt-4"><a href="https://instagram.com/bendyviajes" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-royal/20 hover:border-royal/50 transition-all"><i data-lucide="instagram" class="w-5 h-5"></i></a> <a href="https://tiktok.com/@tubendyviajes" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-royal/20 hover:border-royal/50 transition-all"><i data-lucide="video" class="w-5 h-5"></i></a> <a href="https://facebook.com/bendyviajes" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-royal/20 hover:border-royal/50 transition-all"><i data-lucide="facebook" class="w-5 h-5"></i></a>
-        </div>
-       </div>
-      </div>
-     </div>
-    </section><!-- FIN SECCIÓN: CONTACTO -->
-   </div><!-- ============================================
-        SECCIÓN: PÁGINAS DINÁMICAS (SUBPÁGINAS)
-        Cada servicio crea su propia página
-        ============================================ -->
+    </section><!-- FIN SECCIÓN: SERVICIOS -->
+   </div><!-- FIN SECCIÓN: SERVICIOS --> <!-- PÁGINAS DE SERVICIOS INDIVIDUALES -->
    <div id="page-boleteria" class="page-section"></div>
    <div id="page-hoteles" class="page-section"></div>
    <div id="page-cruceros" class="page-section"></div>
@@ -238,27 +138,146 @@
    <div id="page-tours" class="page-section"></div>
    <div id="page-atracciones" class="page-section"></div>
    <div id="page-seguros" class="page-section"></div>
-   <div id="page-promociones" class="page-section"></div><!-- ============================================
+   <div id="page-promociones" class="page-section"></div><!-- SECCIÓN: PROMOCIONES (Ofertas especiales) -->
+   <section id="promos" class="py-20 px-4 bg-dark">
+    <div class="max-w-7xl mx-auto">
+     <div class="text-center mb-16 fade-up">
+      <h2 class="font-outfit font-800 text-3xl sm:text-5xl mb-4" data-i18n="promos_title">Promociones Especiales</h2>
+      <p class="text-gray-400 max-w-xl mx-auto" data-i18n="promos_sub">Ofertas exclusivas para viajeros</p>
+     </div>
+     <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="promosGrid"></div>
+    </div>
+   </section><!-- FIN SECCIÓN: PROMOCIONES --> <!-- SECCIÓN: GALERÍA (9 fotos con hover effect) -->
+   <section id="gallery" class="py-20 px-4 bg-dark">
+    <div class="max-w-7xl mx-auto">
+     <div class="text-center mb-16 fade-up">
+      <h2 class="font-outfit font-800 text-3xl sm:text-5xl mb-4" data-i18n="gallery_title">Galería de Viajes</h2>
+      <p class="text-gray-400 max-w-xl mx-auto" data-i18n="gallery_sub">Inspírate con nuestras fotos de destinos increíbles</p>
+     </div>
+     <div class="gallery-grid" id="galleryGrid"></div>
+    </div>
+   </section><!-- FIN SECCIÓN: GALERÍA --> <!-- SECCIÓN: QUIÉNES SOMOS (About Us con video) -->
+   <section id="about" class="py-20 px-4 gradient-bg-dark">
+    <div class="max-w-5xl mx-auto fade-up">
+     <div class="text-center mb-10">
+      <h2 class="font-outfit font-800 text-3xl sm:text-5xl mb-4" data-i18n="about_title">Quiénes Somos</h2>
+     </div>
+     <div class="bg-white/5 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-white/10">
+      <div class="flex flex-col md:flex-row items-center gap-8">
+       <div class="w-24 h-24 rounded-2xl flex items-center justify-center shrink-0">
+        <img src="https://imgur.com/JCIBLfO.png" alt="Bendy Viajes" class="w-full h-full object-contain">
+       </div>
+       <p id="aboutText" class="text-gray-300 text-lg leading-relaxed">En Bendy Viajes nos especializamos en crear experiencias inolvidables alrededor del mundo, ofreciendo atención personalizada, confianza y los mejores destinos para nuestros clientes.</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- FIN SECCIÓN: QUIÉNES SOMOS --> <!-- SECCIÓN: VENEZUELA (Video + Mensaje) -->
+   <section id="venezuela" class="py-20 px-4 gradient-bg-dark">
+    <div class="max-w-5xl mx-auto fade-up">
+     <div class="flex items-center justify-center gap-6 mb-10">
+      <img src="https://imgur.com/UHhJ37M.png" alt="Venezuela Logo" class="w-16 h-16 sm:w-20 sm:h-20 object-contain">
+      <h2 class="font-outfit font-800 text-3xl sm:text-5xl" data-i18n="venezuela_title">Venezuela Sigo Aquí</h2>
+     </div>
+     <div class="relative w-full rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-blue-600 to-purple-600" style="aspect-ratio: 16/9;">
+      <video autoplay muted loop playsinline class="w-full h-full object-cover"><source src="https://github.com/datacloudly/Bendytravel/raw/main/quienessomos.mp4" type="video/mp4">
+      </video>
+     </div>
+     <div class="mt-8 bg-white/5 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-white/10 text-center">
+      <p class="text-gray-300 text-lg leading-relaxed mb-6" data-i18n="venezuela_text">Nos enorgullece servir a la comunidad venezolana en el mundo. Desde nuestras raíces en Venezuela, llevamos el espíritu emprendedor a cada viaje que planificamos para nuestros clientes.</p>
+      <div class="flex justify-center">
+       <img src="https://imgur.com/f2Nxc7L.jpg" alt="Venezuela comunidad" loading="lazy" class="w-full sm:w-2/3 rounded-2xl transition-transform duration-300 hover:scale-110 cursor-pointer" onerror="this.style.background='#1a1a3e'; this.alt='Imagen no disponible';">
+      </div>
+     </div>
+    </div>
+   </section><!-- FIN SECCIÓN: VENEZUELA --> <!-- SECCIÓN: CONTACTO (Formulario + Información) -->
+   <section id="contact" class="py-20 px-4 bg-dark">
+    <div class="max-w-5xl mx-auto fade-up">
+     <div class="text-center mb-12">
+      <h2 class="font-outfit font-800 text-3xl sm:text-5xl mb-4" data-i18n="contact_title">Contáctanos</h2>
+      <p class="text-gray-400" data-i18n="contact_sub">Estamos listos para ayudarte a planificar tu próximo viaje</p>
+     </div>
+     <div class="grid grid-cols-1 md:grid-cols-2 gap-8"><!-- FORMULARIO DE CONTACTO -->
+      <form id="contactForm" class="space-y-4" onsubmit="handleFormSubmit(event)">
+       <div>
+        <label for="name" class="block text-sm text-gray-400 mb-1" data-i18n="form_name">Nombre completo</label> <input type="text" id="name" name="name" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-royal focus:outline-none transition-colors">
+       </div>
+       <div>
+        <label for="email" class="block text-sm text-gray-400 mb-1">Email</label> <input type="email" id="email" name="email" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-royal focus:outline-none transition-colors">
+       </div>
+       <div>
+        <label for="company" class="block text-sm text-gray-400 mb-1" data-i18n="form_company">Empresa (opcional)</label> <input type="text" id="company" name="company" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-royal focus:outline-none transition-colors">
+       </div>
+       <div>
+        <label for="message" class="block text-sm text-gray-400 mb-1" data-i18n="form_message">Mensaje</label> <textarea id="message" name="message" rows="4" required class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-royal focus:outline-none transition-colors resize-none"></textarea>
+       </div><button type="submit" id="submitBtn" class="btn-glow gradient-bg w-full py-4 rounded-xl font-semibold text-lg transition-all duration-300"> <span data-i18n="form_send">Enviar mensaje</span> </button>
+       <div id="formMessage" class="hidden p-4 rounded-xl text-center font-semibold"></div>
+      </form><!-- Info -->
+      <div class="space-y-6">
+       <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
+        <div class="flex items-start gap-4">
+         <i data-lucide="map-pin" class="w-5 h-5 text-royal mt-1"></i>
+         <div>
+          <p class="font-semibold mb-1" data-i18n="info_address">Dirección</p>
+          <p id="addressText" class="text-gray-400 text-sm">Aeropuerto José Antonio Anzoátegui de Barcelona piso 1</p>
+         </div>
+        </div>
+       </div>
+       <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
+        <div class="flex items-start gap-4">
+         <i data-lucide="mail" class="w-5 h-5 text-royal mt-1"></i>
+         <div>
+          <p class="font-semibold mb-1">Email</p>
+          <p class="text-gray-400 text-sm">Bendytravel@gmail.com</p>
+         </div>
+        </div>
+       </div>
+       <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
+        <div class="flex items-start gap-4">
+         <i data-lucide="phone" class="w-5 h-5 text-royal mt-1"></i>
+         <div>
+          <p class="font-semibold mb-1" data-i18n="info_phone">Teléfono</p>
+          <p class="text-gray-400 text-sm">+58 412-1847127</p>
+         </div>
+        </div>
+       </div>
+       <div class="flex gap-4 mt-4">
+        <a href="https://instagram.com/bendyviajes" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-royal/20 hover:border-royal/50 transition-all"><i data-lucide="instagram" class="w-5 h-5"></i></a> <a href="https://tiktok.com/@tubendyviajes" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-royal/20 hover:border-royal/50 transition-all"><i data-lucide="video" class="w-5 h-5"></i></a> <a href="https://facebook.com/bendyviajes" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-royal/20 hover:border-royal/50 transition-all"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- FIN SECCIÓN: CONTACTO -->
+  </div><!-- ============================================
+        SECCIÓN: PÁGINAS DINÁMICAS (SUBPÁGINAS)
+        Cada servicio crea su propia página
+        ============================================ -->
+  <div id="page-boleteria" class="page-section"></div>
+  <div id="page-hoteles" class="page-section"></div>
+  <div id="page-cruceros" class="page-section"></div>
+  <div id="page-paquetes" class="page-section"></div>
+  <div id="page-tours" class="page-section"></div>
+  <div id="page-atracciones" class="page-section"></div>
+  <div id="page-seguros" class="page-section"></div>
+  <div id="page-promociones" class="page-section"></div><!-- ============================================
         SECCIÓN: PIE DE PÁGINA (FOOTER)
         Links y redes sociales
         ============================================ -->
-   <footer class="border-t border-white/5 py-10 px-4 bg-dark">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-     <div class="flex items-center gap-2">
-      <img src="https://imgur.com/JCIBLfO.png" alt="Bendy Viajes" class="w-8 h-8 object-contain"><span class="font-outfit font-bold">Bendy Viajes</span>
-     </div>
-     <div class="flex gap-4"><a href="https://instagram.com/bendyviajes" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a> <a href="https://tiktok.com/@tubendyviajes" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="video" class="w-5 h-5"></i></a> <a href="https://facebook.com/bendyviajes" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="facebook" class="w-5 h-5"></i></a>
-     </div>
-     <p class="text-gray-500 text-sm">© 2025 Bendy Viajes. <span data-i18n="rights">Todos los derechos reservados.</span></p>
+  <footer class="border-t border-white/5 py-10 px-4 bg-dark">
+   <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="flex items-center gap-2"><img src="https://imgur.com/JCIBLfO.png" alt="Bendy Viajes" class="w-8 h-8 object-contain"><span class="font-outfit font-bold">Bendy Viajes</span>
     </div>
-   </footer><!-- WHATSAPP FLOATING -->
-   <div class="fixed bottom-6 right-6 z-50">
-    <div id="waMenu" class="whatsapp-menu absolute bottom-16 right-0 bg-dark/95 backdrop-blur-lg border border-white/10 rounded-2xl p-4 w-64 space-y-2 shadow-2xl hidden"><a href="https://wa.me/+584121847127?text=Hola%2C%20quiero%20cotizar%20un%20viaje" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors"> <span>✈️</span><span class="text-sm" data-i18n="wa_quote">Cotizar viaje</span> </a> <a href="https://wa.me/+584121847127?text=Hola%2C%20quiero%20reservar%20un%20hotel" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors"> <span>🏨</span><span class="text-sm" data-i18n="wa_hotel">Reservar hotel</span> </a> <a href="https://wa.me/+584121847127?text=Hola%2C%20quiero%20información%20de%20cruceros" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors"> <span>🚢</span><span class="text-sm" data-i18n="wa_cruise">Información de cruceros</span> </a> <a href="https://wa.me/+584121847127?text=Hola%2C%20quiero%20información%20de%20paquetes%20turísticos" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors"> <span>🎒</span><span class="text-sm" data-i18n="wa_packages">Paquetes turísticos</span> </a> <a href="https://wa.me/+584121847127?text=Hola%2C%20necesito%20atención%20personalizada" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors"> <span>📞</span><span class="text-sm" data-i18n="wa_support">Atención personalizada</span> </a>
-    </div><button onclick="toggleWaMenu()" class="wa-pulse w-14 h-14 rounded-full bg-green-500 flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
-     <svg class="w-7 h-7 text-white" fill="currentColor" viewbox="0 0 24 24">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" /><path d="M12 0C5.373 0 0 5.373 0 12c0 2.138.56 4.146 1.54 5.886L0 24l6.304-1.654A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.97 0-3.834-.53-5.445-1.455l-.39-.232-3.742.982.999-3.648-.254-.404A9.72 9.72 0 012.25 12 9.75 9.75 0 0112 2.25 9.75 9.75 0 0121.75 12 9.75 9.75 0 0112 21.75z" />
-     </svg></button>
+    <div class="flex gap-4">
+     <a href="https://instagram.com/bendyviajes" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="instagram" class="w-5 h-5"></i></a> <a href="https://tiktok.com/@tubendyviajes" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="video" class="w-5 h-5"></i></a> <a href="https://facebook.com/bendyviajes" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors"><i data-lucide="facebook" class="w-5 h-5"></i></a>
+    </div>
+    <p class="text-gray-500 text-sm">© 2025 Bendy Viajes. <span data-i18n="rights">Todos los derechos reservados.</span></p>
    </div>
+  </footer><!-- WHATSAPP FLOATING -->
+  <div class="fixed bottom-6 right-6 z-50">
+   <div id="waMenu" class="whatsapp-menu absolute bottom-16 right-0 bg-dark/95 backdrop-blur-lg border border-white/10 rounded-2xl p-4 w-64 space-y-2 shadow-2xl hidden">
+    <a href="https://wa.me/+584121847127?text=Hola%2C%20quiero%20cotizar%20un%20viaje" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors"> <span>✈️</span><span class="text-sm" data-i18n="wa_quote">Cotizar viaje</span> </a> <a href="https://wa.me/+584121847127?text=Hola%2C%20quiero%20reservar%20un%20hotel" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors"> <span>🏨</span><span class="text-sm" data-i18n="wa_hotel">Reservar hotel</span> </a> <a href="https://wa.me/+584121847127?text=Hola%2C%20quiero%20información%20de%20cruceros" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors"> <span>🚢</span><span class="text-sm" data-i18n="wa_cruise">Información de cruceros</span> </a> <a href="https://wa.me/+584121847127?text=Hola%2C%20quiero%20información%20de%20paquetes%20turísticos" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors"> <span>🎒</span><span class="text-sm" data-i18n="wa_packages">Paquetes turísticos</span> </a> <a href="https://wa.me/+584121847127?text=Hola%2C%20necesito%20atención%20personalizada" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-colors"> <span>📞</span><span class="text-sm" data-i18n="wa_support">Atención personalizada</span> </a>
+   </div><button onclick="toggleWaMenu()" class="wa-pulse w-14 h-14 rounded-full bg-green-500 flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+    <svg class="w-7 h-7 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" /><path d="M12 0C5.373 0 0 5.373 0 12c0 2.138.56 4.146 1.54 5.886L0 24l6.304-1.654A11.95 11.95 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.97 0-3.834-.53-5.445-1.455l-.39-.232-3.742.982.999-3.648-.254-.404A9.72 9.72 0 012.25 12 9.75 9.75 0 0112 2.25 9.75 9.75 0 0121.75 12 9.75 9.75 0 0112 21.75z" />
+    </svg></button>
   </div><!-- ============================================
        SECCIÓN: SCRIPTS Y LÓGICA PRINCIPAL
        - Datos de servicios y promociones
@@ -269,20 +288,21 @@
   <script>
     // Services data
     const services = [
-      { id: 'boleteria', icon: 'ticket', title: 'Boletería', titleEn: 'Flights', desc: 'Vuelos nacionales e internacionales al mejor precio', descEn: 'Domestic and international flights at the best price', color: 'from-blue-500 to-indigo-600', image: 'https://imgur.com/FcVRgvA.jpg' },
-      { id: 'hoteles', icon: 'building', title: 'Hoteles', titleEn: 'Hotels', desc: 'Alojamientos de lujo y económicos en todo el mundo', descEn: 'Luxury and budget accommodations worldwide', color: 'from-purple-500 to-pink-600', image: 'https://imgur.com/PEGA_PORTADA_HOTELES' },
-      { id: 'cruceros', icon: 'ship', title: 'Cruceros', titleEn: 'Cruises', desc: 'Navega por los destinos más exclusivos', descEn: 'Sail to the most exclusive destinations', color: 'from-cyan-500 to-blue-600', image: 'https://imgur.com/ZZsO0LQ.jpg' },
-      { id: 'paquetes', icon: 'package', title: 'Paquetes', titleEn: 'Packages', desc: 'Todo incluido para viajes sin preocupaciones', descEn: 'All-inclusive for worry-free travel', color: 'from-green-500 to-teal-600', image: 'https://imgur.com/PEGA_PORTADA_PAQUETES' },
-      { id: 'tours', icon: 'map', title: 'Tours', titleEn: 'Tours', desc: 'Excursiones guiadas a destinos increíbles', descEn: 'Guided excursions to incredible destinations', color: 'from-orange-500 to-red-600', image: 'https://imgur.com/wWmTPO2.jpg' },
-      { id: 'atracciones', icon: 'ferris-wheel', title: 'Atracciones', titleEn: 'Attractions', desc: 'Entradas a parques y atracciones turísticas', descEn: 'Tickets to parks and tourist attractions', color: 'from-yellow-500 to-orange-600', image: 'https://imgur.com/fe5iBKp.jpg' },
-      { id: 'seguros', icon: 'shield-check', title: 'Seguros de Viaje', titleEn: 'Travel Insurance', desc: 'Protección completa para tu tranquilidad', descEn: 'Full protection for your peace of mind', color: 'from-emerald-500 to-green-600', image: 'https://imgur.com/dZuqCsN.jpg' },
-      { id: 'promociones', icon: 'percent', title: 'Promociones', titleEn: 'Promotions', desc: 'Ofertas exclusivas y descuentos especiales', descEn: 'Exclusive offers and special discounts', color: 'from-rose-500 to-purple-600', image: 'https://imgur.com/PEGA_PORTADA_PROMOCIONES' }
+      { id: 'boleteria', icon: 'ticket', title: 'Boletería', titleEn: 'Flights', desc: 'Vuelos nacionales e internacionales al mejor precio', descEn: 'Domestic and international flights at the best price', color: 'from-blue-500 to-indigo-600', image: 'https://imgur.com/JntIkDM.jpg' },
+      { id: 'hoteles', icon: 'building', title: 'Hoteles', titleEn: 'Hotels', desc: 'Alojamientos de lujo y económicos en todo el mundo', descEn: 'Luxury and budget accommodations worldwide', color: 'from-purple-500 to-pink-600', image: 'https://imgur.com/SV8Frcr.jpg' },
+      { id: 'cruceros', icon: 'ship', title: 'Cruceros', titleEn: 'Cruises', desc: 'Navega por los destinos más exclusivos', descEn: 'Sail to the most exclusive destinations', color: 'from-cyan-500 to-blue-600', image: 'https://imgur.com/tIn25dK.jpg' },
+      { id: 'paquetes', icon: 'package', title: 'Paquetes', titleEn: 'Packages', desc: 'Todo incluido para viajes sin preocupaciones', descEn: 'All-inclusive for worry-free travel', color: 'from-green-500 to-teal-600', image: 'https://imgur.com/UvRSQCW.jpg' },
+      { id: 'tours', icon: 'map', title: 'Tours', titleEn: 'Tours', desc: 'Excursiones guiadas a destinos increíbles', descEn: 'Guided excursions to incredible destinations', color: 'from-orange-500 to-red-600', image: 'https://imgur.com/Divkz6u.jpg' },
+      { id: 'atracciones', icon: 'ferris-wheel', title: 'Atracciones', titleEn: 'Attractions', desc: 'Entradas a parques y atracciones turísticas', descEn: 'Tickets to parks and tourist attractions', color: 'from-yellow-500 to-orange-600', image: 'https://imgur.com/WcclkrZ.jpg' },
+      { id: 'seguros', icon: 'shield-check', title: 'Seguros de Viaje', titleEn: 'Travel Insurance', desc: 'Protección completa para tu tranquilidad', descEn: 'Full protection for your peace of mind', color: 'from-emerald-500 to-green-600', image: 'https://imgur.com/PjL4mYm.jpg' },
+      { id: 'promociones', icon: 'percent', title: 'Promociones', titleEn: 'Promotions', desc: 'Ofertas exclusivas y descuentos especiales', descEn: 'Exclusive offers and special discounts', color: 'from-rose-500 to-purple-600', image: 'https://imgur.com/atuTMy6.jpg' }
     ];
 
     const promotions = [
-      { dest: 'Cancún, México', duration: '5 noches', durationEn: '5 nights', price: 'Desde $599', priceEn: 'From $599', tag: '🔥 Hot Deal' },
-      { dest: 'Punta Cana', duration: '7 noches', durationEn: '7 nights', price: 'Desde $799', priceEn: 'From $799', tag: '⭐ Bestseller' },
-      { dest: 'Europa Tour', duration: '10 días', durationEn: '10 days', price: 'Desde $1,299', priceEn: 'From $1,299', tag: '✨ Premium' }
+      { dest: 'Bogotá', duration: '3 noches', durationEn: '3 nights', price: 'Desde $250', priceEn: 'From $250', tag: '🏨 Hospedajes' },
+      { dest: 'Curaçao', duration: '3 noches', durationEn: '3 nights', price: 'Desde $350', priceEn: 'From $350', tag: '🏨 Hospedajes' },
+      { dest: 'Madrid', duration: '3 noches', durationEn: '3 nights', price: 'Desde $550', priceEn: 'From $550', tag: '🏨 Hospedajes' },
+      { dest: 'Roma', duration: '3 noches', durationEn: '3 nights', price: 'Desde $650', priceEn: 'From $650', tag: '🏨 Hospedajes' }
     ];
 
     // Gallery images
@@ -309,7 +329,7 @@
         menu_promos: 'Promociones Especiales',
         menu_gallery: 'Galería de Viajes',
         menu_about: 'Sobre Nosotros',
-        menu_venezuela: 'Venezuela, Estoy Aquí',
+        menu_venezuela: 'Venezuela, sigo Aquí',
         menu_contact: 'Contáctanos',
         services_title: 'Nuestros Servicios',
         services_sub: 'Todo lo que necesitas para tu próxima aventura',
@@ -381,8 +401,8 @@
       const grid = document.getElementById('servicesGrid');
       grid.innerHTML = services.map(s => `
         <div class="card-hover cursor-pointer bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10" onclick="showPage('${s.id}')">
-          <div class="card-img-wrap h-40 bg-gradient-to-br ${s.color} flex items-center justify-center">
-            <i data-lucide="${s.icon}" class="w-12 h-12 text-white/90"></i>
+          <div class="card-img-wrap h-40 bg-gradient-to-br ${s.color}">
+            <img src="${s.image}" alt="${currentLang === 'es' ? s.title : s.titleEn}" class="w-full h-full object-cover" loading="lazy" onerror="this.style.background='linear-gradient(to bottom right, var(--tw-gradient-stops))'; this.alt='Imagen no disponible';">
           </div>
           <div class="p-5">
             <h3 class="font-outfit font-bold text-lg mb-1">${currentLang === 'es' ? s.title : s.titleEn}</h3>
@@ -891,5 +911,5 @@
       }
     });
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9fa609bb47c6492b',t:'MTc3ODU1MzQxMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9fa64afbd059492b',t:'MTc3ODU1NjA4Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
